@@ -38,6 +38,17 @@ window.DEFAULT_LANDING_CMS = {
       ["Opening match results", "Connection restored. Sending you to your personalized dating page now."]
     ]
   },
+  browserGuide: {
+    eyebrow: "For the best experience",
+    headline: "Open this page in your browser before matching.",
+    body: "Some in-app browsers can block profile loading, registration, and secure matching. Open the link in Safari, Chrome, or your default browser first.",
+    steps: [
+      ["1", "Tap the menu icon in the app browser."],
+      ["2", "Choose Open in browser or Open in Safari."],
+      ["3", "If nothing happens, copy the link and paste it into your browser."]
+    ],
+    buttonText: "Continue to matching"
+  },
   nav: {
     links: [
       ["Activities", "#activities"],

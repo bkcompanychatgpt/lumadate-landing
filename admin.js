@@ -4,6 +4,7 @@
 
   const tabs = [
     ["settings", "Settings"],
+    ["browserGuide", "Browser Guide"],
     ["match", "Match Gate"],
     ["hero", "Hero"],
     ["stats", "Stats"],
@@ -182,6 +183,13 @@
         ${textField("settings.googlePlayUrl", "Google Play URL")}
         ${textField("settings.webAppUrl", "Web App URL")}
         ${textField("settings.apkUrl", "APK URL")}
+      </div>`,
+      browserGuide: () => `<div class="grid">
+        ${textField("browserGuide.eyebrow", "Eyebrow")}
+        ${textarea("browserGuide.headline", "Headline")}
+        ${textarea("browserGuide.body", "Body")}
+        ${textField("browserGuide.buttonText", "Button text")}
+        ${renderPairArray("browserGuide.steps", ["Number", "Instruction"])}
       </div>`,
       match: () => `<div class="grid">
         ${textField("matchGate.buttonText", "Button text")}

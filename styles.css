@@ -50,6 +50,265 @@ select {
   font-size: 13px;
 }
 
+.browser-guide {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 46px);
+  overflow: auto;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 244, 0.94), rgba(236, 248, 244, 0.92)),
+    var(--match-bg-image, url("assets/profile-wall.png")) center / cover;
+}
+
+.browser-guide[hidden] {
+  display: none;
+}
+
+.browser-guide-card {
+  width: min(100%, 1080px);
+  min-height: min(760px, calc(100vh - 40px));
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(300px, 0.82fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+  padding: clamp(24px, 5vw, 58px);
+  border: 1px solid rgba(22, 21, 19, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 28px 90px rgba(22, 21, 19, 0.14);
+  backdrop-filter: blur(18px);
+}
+
+.guide-copy h1 {
+  max-width: 620px;
+  margin-bottom: 18px;
+  font-size: clamp(40px, 6vw, 78px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.guide-body {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.55;
+}
+
+.guide-steps {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.guide-steps div {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: center;
+  min-height: 58px;
+  padding: 12px 14px;
+  border: 1px solid rgba(22, 21, 19, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.guide-steps span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--coral);
+  font-weight: 900;
+}
+
+.guide-steps p {
+  margin: 0;
+  color: #403a35;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.guide-primary-btn {
+  width: min(100%, 360px);
+  min-height: 58px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: #171411;
+  box-shadow: 0 20px 44px rgba(22, 21, 19, 0.2);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.guide-phone {
+  position: relative;
+  width: min(100%, 360px);
+  min-height: 640px;
+  justify-self: center;
+  border: 10px solid #171411;
+  border-radius: 44px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.58)),
+    url("assets/profile-wall.png") center / cover;
+  box-shadow: 0 28px 86px rgba(22, 21, 19, 0.28);
+  overflow: hidden;
+}
+
+.guide-phone::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 116px;
+  height: 26px;
+  border-radius: 0 0 18px 18px;
+  background: #171411;
+  transform: translateX(-50%);
+}
+
+.guide-phone-top {
+  height: 120px;
+  display: grid;
+  grid-template-columns: 42px 1fr 46px;
+  gap: 10px;
+  align-items: center;
+  padding: 44px 22px 18px;
+  background: rgba(255, 255, 255, 0.78);
+  font-weight: 850;
+}
+
+.guide-phone-top span,
+.guide-phone-top em,
+.guide-sheet header span,
+.guide-sheet p span {
+  display: block;
+  border-radius: 50%;
+}
+
+.guide-phone-top span {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #171411;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+
+.guide-phone-top em {
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(47, 117, 255, 0.28);
+  background: #fff;
+  box-shadow: 0 0 0 6px rgba(47, 117, 255, 0.16);
+}
+
+.guide-phone-top em::before {
+  content: "...";
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: #171411;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 2px;
+  transform: translateY(-4px);
+}
+
+.guide-sheet {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 24px;
+  padding: 18px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 24px 70px rgba(22, 21, 19, 0.2);
+}
+
+.guide-sheet header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.guide-sheet header span {
+  width: 18px;
+  height: 18px;
+  position: relative;
+}
+
+.guide-sheet header span::before,
+.guide-sheet header span::after {
+  content: "";
+  position: absolute;
+  inset: 8px 0 auto;
+  height: 2px;
+  background: #171411;
+}
+
+.guide-sheet header span::before {
+  transform: rotate(45deg);
+}
+
+.guide-sheet header span::after {
+  transform: rotate(-45deg);
+}
+
+.guide-sheet p {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+  padding: 14px 4px;
+  border-top: 1px solid rgba(22, 21, 19, 0.08);
+  font-weight: 760;
+}
+
+.guide-sheet p span {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(22, 21, 19, 0.42);
+}
+
+.guide-sheet .active {
+  margin-top: 6px;
+  padding: 14px 12px;
+  border: 3px solid var(--coral);
+  border-radius: 999px;
+  color: #171411;
+  background: rgba(232, 93, 79, 0.06);
+}
+
+.guide-arrow {
+  position: absolute;
+  right: -70px;
+  top: 130px;
+  width: 110px;
+  height: 170px;
+  border-top: 5px dashed #2f75ff;
+  border-right: 5px dashed #2f75ff;
+  border-radius: 0 100px 0 0;
+  transform: rotate(8deg);
+}
+
+.guide-arrow::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: -14px;
+  border-left: 14px solid #2f75ff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  transform: rotate(-28deg);
+}
+
 .match-gate {
   position: relative;
   min-height: 100vh;

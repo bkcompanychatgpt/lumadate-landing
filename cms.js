@@ -177,6 +177,13 @@
     setText("#start-match", cms.matchGate.buttonText);
     setText("#match-status", cms.matchGate.title);
     setText("#match-detail", cms.matchGate.detail);
+    setText(".browser-guide .eyebrow", cms.browserGuide?.eyebrow || "For the best experience");
+    setText("#browser-guide-title", cms.browserGuide?.headline || "Open this page in your browser before matching.");
+    setText(".guide-body", cms.browserGuide?.body || "Some in-app browsers can block profile loading, registration, and secure matching. Open the link in Safari, Chrome, or your default browser first.");
+    setText("#continue-to-match", cms.browserGuide?.buttonText || "Continue to matching");
+    if (Array.isArray(cms.browserGuide?.steps)) {
+      setHtml(".guide-steps", cms.browserGuide.steps.map(([num, text]) => `<div><span>${esc(num)}</span><p>${esc(text)}</p></div>`).join(""));
+    }
 
     const landing = document.querySelector("#landing");
     if (!landing) return;

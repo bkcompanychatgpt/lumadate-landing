@@ -8,6 +8,8 @@
     countdownSeconds: cmsConfig.settings?.countdownSeconds || legacyConfig.countdownSeconds
   };
   const matchGate = document.querySelector("#match-gate");
+  const browserGuide = document.querySelector("#browser-guide");
+  const continueToMatch = document.querySelector("#continue-to-match");
   const landing = document.querySelector("#landing");
   const startButton = document.querySelector("#start-match");
   const countdownStage = document.querySelector("#countdown-stage");
@@ -153,6 +155,12 @@
   });
 
   startButton?.addEventListener("click", startMatchingDelay);
+
+  continueToMatch?.addEventListener("click", () => {
+    if (browserGuide) browserGuide.hidden = true;
+    if (matchGate) matchGate.hidden = false;
+    track("BrowserGuideContinue", {});
+  });
 
   leadForm?.addEventListener("submit", (event) => {
     event.preventDefault();
