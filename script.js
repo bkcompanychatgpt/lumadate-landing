@@ -158,7 +158,7 @@
     event.preventDefault();
     const formData = new FormData(leadForm);
     track("Lead", {
-      city: formData.get("city"),
+      country: formData.get("country"),
       hasName: Boolean(formData.get("name")),
       hasPhone: Boolean(formData.get("phone"))
     });
