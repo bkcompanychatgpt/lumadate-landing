@@ -159,6 +159,7 @@
   continueToMatch?.addEventListener("click", () => {
     if (browserGuide) browserGuide.hidden = true;
     if (matchGate) matchGate.hidden = false;
+    document.body.classList.remove("guide-ready");
     track("BrowserGuideContinue", {});
   });
 

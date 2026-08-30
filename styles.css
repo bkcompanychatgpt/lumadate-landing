@@ -29,6 +29,10 @@ body:not(.landing-ready) {
   overflow: hidden;
 }
 
+body.guide-ready {
+  overflow: auto;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -54,7 +58,7 @@ select {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: clamp(18px, 4vw, 46px);
+  padding: clamp(16px, 3vw, 34px);
   overflow: auto;
   background:
     linear-gradient(135deg, rgba(255, 250, 244, 0.94), rgba(236, 248, 244, 0.92)),
@@ -66,13 +70,13 @@ select {
 }
 
 .browser-guide-card {
-  width: min(100%, 1080px);
-  min-height: min(760px, calc(100vh - 40px));
+  width: min(100%, 1120px);
+  min-height: min(690px, calc(100vh - 28px));
   display: grid;
   grid-template-columns: minmax(0, 0.98fr) minmax(300px, 0.82fr);
   gap: clamp(28px, 5vw, 70px);
   align-items: center;
-  padding: clamp(24px, 5vw, 58px);
+  padding: clamp(22px, 4vw, 46px);
   border: 1px solid rgba(22, 21, 19, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
@@ -83,7 +87,7 @@ select {
 .guide-copy h1 {
   max-width: 620px;
   margin-bottom: 18px;
-  font-size: clamp(40px, 6vw, 78px);
+  font-size: clamp(36px, 5.2vw, 68px);
   line-height: 0.98;
   letter-spacing: 0;
 }
@@ -91,14 +95,14 @@ select {
 .guide-body {
   max-width: 620px;
   color: var(--muted);
-  font-size: clamp(17px, 2vw, 22px);
+  font-size: clamp(16px, 1.6vw, 20px);
   line-height: 1.55;
 }
 
 .guide-steps {
   display: grid;
   gap: 12px;
-  margin: 28px 0;
+  margin: 24px 0;
 }
 
 .guide-steps div {
@@ -144,13 +148,27 @@ select {
   font-weight: 900;
 }
 
+.guide-copy::after {
+  content: "Private profile loading works best outside social app browsers.";
+  display: block;
+  width: min(100%, 460px);
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--jade);
+  border-radius: 8px;
+  color: #403a35;
+  background: rgba(17, 124, 114, 0.08);
+  font-size: 14px;
+  font-weight: 760;
+}
+
 .guide-phone {
   position: relative;
-  width: min(100%, 360px);
-  min-height: 640px;
+  width: min(100%, 330px);
+  min-height: 590px;
   justify-self: center;
   border: 10px solid #171411;
-  border-radius: 44px;
+  border-radius: 42px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.58)),
     url("assets/profile-wall.png") center / cover;
@@ -171,7 +189,7 @@ select {
 }
 
 .guide-phone-top {
-  height: 120px;
+  height: 112px;
   display: grid;
   grid-template-columns: 42px 1fr 46px;
   gap: 10px;
@@ -222,8 +240,8 @@ select {
   position: absolute;
   left: 18px;
   right: 18px;
-  bottom: 24px;
-  padding: 18px;
+  bottom: 18px;
+  padding: 16px;
   border-radius: 26px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 24px 70px rgba(22, 21, 19, 0.2);
@@ -288,25 +306,35 @@ select {
 
 .guide-arrow {
   position: absolute;
-  right: -70px;
-  top: 130px;
-  width: 110px;
-  height: 170px;
+  right: -82px;
+  top: 80px;
+  width: 124px;
+  height: 96px;
   border-top: 5px dashed #2f75ff;
   border-right: 5px dashed #2f75ff;
-  border-radius: 0 100px 0 0;
-  transform: rotate(8deg);
+  border-radius: 0 90px 0 0;
+  transform: rotate(-18deg);
 }
 
 .guide-arrow::after {
   content: "";
   position: absolute;
-  right: -12px;
-  top: -14px;
-  border-left: 14px solid #2f75ff;
+  left: -10px;
+  top: -12px;
+  border-right: 14px solid #2f75ff;
   border-top: 9px solid transparent;
   border-bottom: 9px solid transparent;
-  transform: rotate(-28deg);
+  transform: rotate(-10deg);
+}
+
+.guide-arrow strong {
+  position: absolute;
+  right: -8px;
+  bottom: -32px;
+  color: #2f75ff;
+  font-size: 15px;
+  font-weight: 950;
+  white-space: nowrap;
 }
 
 .match-gate {
@@ -1278,6 +1306,63 @@ cite {
 }
 
 @media (max-width: 860px) {
+  .browser-guide {
+    display: block;
+    min-height: 100vh;
+    padding: 12px;
+  }
+
+  .browser-guide-card {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .guide-copy h1 {
+    font-size: 40px;
+  }
+
+  .guide-body {
+    font-size: 16px;
+  }
+
+  .guide-phone {
+    order: -1;
+    width: min(100%, 330px);
+    min-height: 500px;
+  }
+
+  .guide-phone-top {
+    height: 98px;
+    padding-top: 38px;
+  }
+
+  .guide-sheet {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 14px;
+  }
+
+  .guide-sheet p {
+    padding: 11px 4px;
+  }
+
+  .guide-arrow {
+    right: -6px;
+    top: 74px;
+    width: 88px;
+    height: 78px;
+    transform: rotate(-24deg);
+  }
+
+  .guide-arrow strong {
+    right: 6px;
+    bottom: -30px;
+  }
+
   .top-strip {
     gap: 12px;
     overflow-x: auto;
