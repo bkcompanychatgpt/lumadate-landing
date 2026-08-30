@@ -277,6 +277,11 @@ a {
   background: #eee;
 }
 
+.square-preview {
+  width: min(180px, 100%);
+  aspect-ratio: 1;
+}
+
 .file-btn {
   position: relative;
   display: inline-grid;

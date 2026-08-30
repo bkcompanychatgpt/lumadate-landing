@@ -145,6 +145,30 @@
     </div>`;
   }
 
+  function renderMiniProfiles() {
+    const rows = config.hero.miniProfiles || [];
+    return `<div class="field full">
+      <label>Hero phone mini profiles</label>
+      <div class="repeater" data-mini-profiles>${rows.map((profile, index) => `
+        <article class="item-card" data-index="${index}">
+          <header><h3>Mini profile ${index + 1}</h3><button type="button" data-remove-mini-profile="${index}">Remove</button></header>
+          <div class="grid">
+            <div class="field"><label>Name</label><input data-mini-profile-field="name" value="${esc(profile.name)}" /></div>
+            <div class="field"><label>City</label><input data-mini-profile-field="city" value="${esc(profile.city)}" /></div>
+            <div class="field"><label>Activity</label><input data-mini-profile-field="activity" value="${esc(profile.activity)}" /></div>
+            <div class="field full">
+              <label>Avatar</label>
+              <img class="image-preview square-preview" src="${esc(profile.image || config.images.heroPreview)}" alt="Mini profile preview" />
+              <input data-mini-profile-field="image" value="${esc(profile.image || "")}" placeholder="Image URL, asset path, or uploaded image data" />
+              <label class="file-btn">Upload avatar<input type="file" accept="image/*" data-mini-profile-image="${index}" /></label>
+            </div>
+          </div>
+        </article>`).join("")}
+        <button type="button" data-add-mini-profile>Add mini profile</button>
+      </div>
+    </div>`;
+  }
+
   function renderPanel() {
     const pages = {
       settings: () => `<div class="grid">
@@ -173,8 +197,9 @@
         ${textField("hero.previewCity", "Featured profile city")}
         ${textField("hero.previewActivity", "Featured profile activity")}
         ${textField("hero.previewCta", "Featured profile CTA")}
-        ${renderPairArray("hero.badges", ["Small label", "Main label", "URL"])}
+        ${renderPairArray("hero.highlights", ["Number / value", "Label"])}
         ${renderStringArray("hero.trust", "Trust badge text")}
+        ${renderMiniProfiles()}
       </div>`,
       stats: () => renderPairArray("stats", ["Number", "Label"]),
       activities: () => `<div class="grid">
@@ -277,6 +302,17 @@
         return profile;
       });
     }
+
+    const miniProfileCards = panel.querySelectorAll("[data-mini-profiles] .item-card");
+    if (miniProfileCards.length) {
+      config.hero.miniProfiles = Array.from(miniProfileCards).map((card) => {
+        const profile = {};
+        card.querySelectorAll("[data-mini-profile-field]").forEach((input) => {
+          profile[input.dataset.miniProfileField] = input.value;
+        });
+        return profile;
+      });
+    }
   }
 
   function syncPanel() {
@@ -339,6 +375,21 @@
       render();
     });
 
+    panel.querySelector("[data-add-mini-profile]")?.addEventListener("click", () => {
+      syncPanel();
+      config.hero.miniProfiles = config.hero.miniProfiles || [];
+      config.hero.miniProfiles.push({ name: "New", city: "City", activity: "Activity", image: "" });
+      render();
+    });
+
+    panel.querySelectorAll("[data-remove-mini-profile]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        syncPanel();
+        config.hero.miniProfiles.splice(Number(btn.dataset.removeMiniProfile), 1);
+        render();
+      });
+    });
+
     panel.querySelectorAll("[data-image-path]").forEach((input) => {
       input.addEventListener("change", async () => {
         const dataUrl = await fileToDataUrl(input.files[0]);
@@ -351,6 +402,14 @@
       input.addEventListener("change", async () => {
         const dataUrl = await fileToDataUrl(input.files[0]);
         config.profiles[Number(input.dataset.profileImage)].image = dataUrl;
+        render();
+      });
+    });
+
+    panel.querySelectorAll("[data-mini-profile-image]").forEach((input) => {
+      input.addEventListener("change", async () => {
+        const dataUrl = await fileToDataUrl(input.files[0]);
+        config.hero.miniProfiles[Number(input.dataset.miniProfileImage)].image = dataUrl;
         render();
       });
     });

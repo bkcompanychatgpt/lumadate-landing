@@ -19,10 +19,31 @@
     const fallback = clone(window.DEFAULT_LANDING_CMS || {});
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-      return merge(fallback, saved);
+      return normalizeCms(merge(fallback, saved));
     } catch {
-      return fallback;
+      return normalizeCms(fallback);
     }
+  }
+
+  function normalizeCms(cms) {
+    if (cms.settings?.brandName === "LumaDate") cms.settings.brandName = "lumadate";
+    if (cms.nav?.ctaText === "Open app") cms.nav.ctaText = "Register";
+    if (cms.finalCta?.primaryText === "Open app") cms.finalCta.primaryText = "Register";
+    if (!Array.isArray(cms.hero?.highlights) || !cms.hero.highlights.length) {
+      cms.hero.highlights = [
+        ["4.9", "average member rating"],
+        ["20K+", "verified members"],
+        ["100%", "human-reviewed profiles"]
+      ];
+    }
+    if (!Array.isArray(cms.hero?.miniProfiles) || !cms.hero.miniProfiles.length) {
+      cms.hero.miniProfiles = [
+        { name: "Alex", city: "Bangkok", activity: "Coffee", image: "" },
+        { name: "Nami", city: "Singapore", activity: "Dinner", image: "" },
+        { name: "Mika", city: "Tokyo", activity: "Movie", image: "" }
+      ];
+    }
+    return cms;
   }
 
   function saveCms(config) {
@@ -75,8 +96,7 @@
     const landing = document.querySelector("#landing");
     if (!landing) return;
 
-    setText(".brand span:last-child", cms.settings.brandName);
-    setText(".brand-mark", cms.settings.brandInitial);
+    setText(".brand-name", cms.settings.brandName);
     setHtml(".nav-links", cms.nav.links.map(([label, url]) => `<a ${attrs(url)}>${esc(label)}</a>`).join(""));
     const navCta = document.querySelector(".nav-cta");
     if (navCta) {
@@ -92,14 +112,18 @@
     setText(".hero-copy .eyebrow", cms.hero.eyebrow);
     setText(".hero-copy h1", cms.hero.headline);
     setText(".hero-copy .lead", cms.hero.lead);
-    setHtml(".download-row", cms.hero.badges.map(([small, strong, url], index) => (
-      `<a class="store-badge${index === 2 ? " light" : ""}" ${attrs(url)}><small>${esc(small)}</small><strong>${esc(strong)}</strong></a>`
+    setHtml(".hero-highlights", cms.hero.highlights.map(([value, label]) => (
+      `<span class="highlight-pill"><strong>${esc(value)}</strong><small>${esc(label)}</small></span>`
     )).join(""));
     setHtml(".hero-copy .trust-row", cms.hero.trust.map((item) => `<span>${esc(item)}</span>`).join(""));
     setText(".preview-body .pill", cms.hero.previewCity);
     setText(".preview-body h3", cms.hero.previewName);
     setText(".preview-body p", cms.hero.previewActivity);
     setText(".preview-body a", cms.hero.previewCta);
+    setHtml(".secondary-preview", cms.hero.miniProfiles.map((profile) => {
+      const style = profile.image ? ` style="background-image:url('${esc(profile.image)}')"` : "";
+      return `<div class="mini-profile-row"><span${style}></span><div><strong>${esc(profile.name)}</strong><small>${esc(profile.city)} · ${esc(profile.activity)}</small></div></div>`;
+    }).join(""));
 
     setHtml(".stats-band", cms.stats.map(([num, label]) => `<div><strong>${esc(num)}</strong><span>${esc(label)}</span></div>`).join(""));
     setText("#activities .eyebrow", cms.activities.eyebrow);

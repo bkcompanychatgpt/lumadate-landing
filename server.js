@@ -108,7 +108,12 @@ function serveStatic(pathname, response) {
     "Content-Type": type,
     "Cache-Control": type.startsWith("text/html") ? "no-store" : "public, max-age=3600"
   });
-  createReadStream(filePath).pipe(response);
+  const stream = createReadStream(filePath);
+  stream.on("error", () => {
+    if (!response.headersSent) sendText(response, 500, "Unable to read file");
+    else response.destroy();
+  });
+  stream.pipe(response);
 }
 
 function readJson(request) {

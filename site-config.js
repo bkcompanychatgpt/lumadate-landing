@@ -1,6 +1,6 @@
 window.DEFAULT_LANDING_CMS = {
   settings: {
-    brandName: "LumaDate",
+    brandName: "lumadate",
     brandInitial: "L",
     title: "LumaDate - Verified Real-Life Dates",
     description: "Book verified real-life dates and social activities with human-reviewed profiles, instant booking, privacy controls, and full-funnel tracking.",
@@ -45,7 +45,7 @@ window.DEFAULT_LANDING_CMS = {
       ["How it works", "#how"],
       ["FAQ", "#faq"]
     ],
-    ctaText: "Open app",
+    ctaText: "Register",
     ctaUrl: "#lead-form"
   },
   hero: {
@@ -56,10 +56,15 @@ window.DEFAULT_LANDING_CMS = {
     previewCity: "Kuala Lumpur",
     previewActivity: "Lunch, coffee, city walk",
     previewCta: "Date her",
-    badges: [
-      ["Download on", "App Store", "#lead-form"],
-      ["Get it on", "Google Play", "#lead-form"],
-      ["Open", "Web App", "#lead-form"]
+    highlights: [
+      ["4.9", "average member rating"],
+      ["20K+", "verified members"],
+      ["100%", "human-reviewed profiles"]
+    ],
+    miniProfiles: [
+      { name: "Alex", city: "Bangkok", activity: "Coffee", image: "" },
+      { name: "Nami", city: "Singapore", activity: "Dinner", image: "" },
+      { name: "Mika", city: "Tokyo", activity: "Movie", image: "" }
     ],
     trust: ["4.9 average rating", "20,000+ verified members", "Every profile human-reviewed"]
   },
@@ -143,7 +148,7 @@ window.DEFAULT_LANDING_CMS = {
   finalCta: {
     headline: "Your next real date is one tap away.",
     body: "Verified people, real activities, instant booking, and a conversion flow built for serious paid traffic.",
-    primaryText: "Open app",
+    primaryText: "Register",
     primaryUrl: "#lead-form",
     secondaryText: "Get the invite",
     secondaryUrl: "#lead-form"

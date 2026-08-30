@@ -389,7 +389,11 @@ p {
 }
 
 .brand {
+  font-family: "Didot", "Bodoni 72", Georgia, serif;
+  font-size: 27px;
   font-weight: 900;
+  letter-spacing: 0;
+  text-transform: lowercase;
 }
 
 .brand-mark {
@@ -497,6 +501,46 @@ p {
   line-height: 1;
 }
 
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 640px;
+}
+
+.highlight-pill {
+  min-height: 78px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid rgba(22, 21, 19, 0.1);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 244, 0.72)),
+    linear-gradient(135deg, rgba(232, 93, 79, 0.12), rgba(17, 124, 114, 0.14));
+  box-shadow: 0 16px 34px rgba(22, 21, 19, 0.08);
+}
+
+.highlight-pill strong,
+.highlight-pill small {
+  display: block;
+}
+
+.highlight-pill strong {
+  color: var(--ink);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.highlight-pill small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
 .trust-row {
   margin-top: 26px;
   color: #4f4841;
@@ -599,6 +643,8 @@ p {
   height: 46px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--coral), var(--jade));
+  background-position: center;
+  background-size: cover;
 }
 
 .mini-profile-row strong,
@@ -1023,21 +1069,21 @@ cite {
   }
 
   .hero-actions,
-  .download-row,
+  .hero-highlights,
   .primary-btn,
   .secondary-btn {
     width: 100%;
   }
 
-  .store-badge {
-    width: 100%;
+  .hero-highlights {
+    grid-template-columns: 1fr;
   }
 
   .nav {
     align-items: stretch;
   }
 
-  .brand span:last-child {
-    display: none;
+  .brand {
+    font-size: 23px;
   }
 }
