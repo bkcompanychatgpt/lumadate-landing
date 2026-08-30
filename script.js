@@ -8,7 +8,9 @@
     countdownSeconds: cmsConfig.settings?.countdownSeconds || legacyConfig.countdownSeconds
   };
   const matchGate = document.querySelector("#match-gate");
+  const accessPrep = document.querySelector("#access-prep");
   const browserGuide = document.querySelector("#browser-guide");
+  const continueToGuide = document.querySelector("#continue-to-guide");
   const continueToMatch = document.querySelector("#continue-to-match");
   const landing = document.querySelector("#landing");
   const startButton = document.querySelector("#start-match");
@@ -21,10 +23,10 @@
   const trackingConfig = cmsConfig.tracking || {};
 
   const states = cmsConfig.matchGate?.states || [
-    ["Checking network signal", "Your match queue is reconnecting securely. Please stay on this page."],
-    ["Caching verified profiles", "Loading real profiles and activity preferences from the nearest match node."],
-    ["Restoring connection", "Almost there. Your compatible results are being prepared in the background."],
-    ["Opening match results", "Connection restored. Sending you to your personalized dating page now."]
+    ["Memeriksa isyarat rangkaian", "Barisan padanan anda sedang disambungkan dengan selamat. Sila kekal di halaman ini."],
+    ["Memuatkan profil disahkan", "Profil sebenar dan pilihan aktiviti sedang dimuatkan dari kawasan terdekat."],
+    ["Memulihkan sambungan", "Hampir selesai. Keputusan padanan anda sedang disediakan di latar belakang."],
+    ["Membuka keputusan padanan", "Sambungan dipulihkan. Anda akan dihantar ke halaman temu janji peribadi sekarang."]
   ];
 
   const track = (eventName, payload = {}) => {
@@ -126,8 +128,8 @@
     startButton.hidden = true;
     countdownStage.hidden = false;
     matchRing.removeAttribute("style");
-    matchStatus.textContent = cmsConfig.matchGate?.title || "Reconnecting match network";
-    matchDetail.textContent = cmsConfig.matchGate?.detail || "Connection is being restored while your verified profiles are cached. Please wait...";
+    matchStatus.textContent = cmsConfig.matchGate?.title || "Menyambung semula rangkaian padanan";
+    matchDetail.textContent = cmsConfig.matchGate?.detail || "Sambungan sedang dipulihkan sementara profil disahkan dimuatkan. Sila tunggu...";
     track("StartMatch", { seconds: total });
 
     let stateIndex = 0;
@@ -156,6 +158,17 @@
 
   startButton?.addEventListener("click", startMatchingDelay);
 
+  continueToGuide?.addEventListener("click", () => {
+    if (accessPrep) accessPrep.hidden = true;
+    if (browserGuide) browserGuide.hidden = false;
+    document.body.classList.remove("prep-ready");
+    document.body.classList.add("guide-ready");
+    window.scrollTo(0, 0);
+    window.requestAnimationFrame(() => window.scrollTo(0, 0));
+    window.setTimeout(() => window.scrollTo(0, 0), 60);
+    track("AccessPrepContinue", {});
+  });
+
   continueToMatch?.addEventListener("click", () => {
     if (browserGuide) browserGuide.hidden = true;
     if (matchGate) matchGate.hidden = false;
@@ -172,7 +185,7 @@
       hasPhone: Boolean(formData.get("phone"))
     });
     leadForm.reset();
-    showToast("Submitted. Your available matches will be prioritized.");
+    showToast("Dihantar. Padanan tersedia anda akan diberi keutamaan.");
   });
 
   if (window.location.hash === "#landing") {

@@ -2,8 +2,8 @@ window.DEFAULT_LANDING_CMS = {
   settings: {
     brandName: "lumadate",
     brandInitial: "L",
-    title: "LumaDate - Verified Real-Life Dates",
-    description: "Book verified real-life dates and social activities with human-reviewed profiles, instant booking, privacy controls, and full-funnel tracking.",
+    title: "lumadate - Temu Janji Sebenar Yang Disahkan",
+    description: "Cari temu janji sebenar dan aktiviti sosial dengan profil yang disemak, pendaftaran pantas, privasi, dan penjejakan kempen penuh.",
     postMatchDestination: "app.html",
     countdownSeconds: 10,
     appStoreUrl: "#lead-form",
@@ -25,143 +25,173 @@ window.DEFAULT_LANDING_CMS = {
   images: {
     matchBackground: "assets/profile-wall.png",
     heroBackground: "assets/profile-wall.png",
-    heroPreview: "assets/profile-wall.png"
+    heroPreview: "assets/profile-wall.png",
+    accessHero: "assets/avatar-mika.png"
+  },
+  accessPrep: {
+    brand: "lumadate MY",
+    status: "Sedang menyediakan akses",
+    title: "Akses percuma sedang disediakan",
+    body: "Kekal di halaman ini sebentar sementara kami memuatkan profil berdekatan yang sesuai untuk anda.",
+    waitText: "Anggaran masa menunggu: 0s",
+    queueTitle: "Profil sedang menunggu",
+    queueNote: "Akses anda hampir selesai",
+    panelBadge: "• Padanan MY",
+    panelStatus: "Sedia",
+    panelTitle: "Membuka temu janji tempatan",
+    panelBody: "Kami sedang menyusun orang berdekatan, memeriksa isyarat profil, dan menyediakan akses selamat sebelum padanan diteruskan.",
+    progressStart: "Sedia",
+    progressEnd: "Dibuka",
+    steps: [
+      ["1", "Cari orang berdekatan", "Profil tempatan disusun mengikut kawasan anda."],
+      ["2", "Buka apabila sudah sedia", "Teruskan sebaik sahaja akses padanan tersedia."],
+      ["3", "Pilihan anda", "Anda boleh teruskan hanya jika padanan sesuai."]
+    ],
+    readyTitle: "Akses percuma telah dibuka",
+    readyBody: "Buka halaman seterusnya apabila anda sudah bersedia.",
+    buttonText: "Teruskan akses percuma",
+    footnote: "Padanan sudah sedia. Sila teruskan di bawah.",
+    faqEyebrow: "Soalan biasa",
+    faq: [
+      ["Mengapa perlu buka halaman seterusnya?", "Sesetengah pelayar dalam aplikasi boleh menghalang gambar profil, pendaftaran, dan proses padanan selamat."],
+      ["Adakah saya perlu memasang aplikasi?", "Tidak. Anda hanya perlu teruskan ke langkah seterusnya untuk membuka halaman dalam pelayar yang lebih stabil."]
+    ]
   },
   matchGate: {
-    buttonText: "Click to match",
-    title: "Reconnecting match network",
-    detail: "Connection is being restored while your verified profiles are cached. Please wait...",
+    buttonText: "Klik untuk padanan",
+    title: "Menyambung semula rangkaian padanan",
+    detail: "Sambungan sedang dipulihkan sementara profil disahkan dimuatkan. Sila tunggu...",
     states: [
-      ["Checking network signal", "Your match queue is reconnecting securely. Please stay on this page."],
-      ["Caching verified profiles", "Loading real profiles and activity preferences from the nearest match node."],
-      ["Restoring connection", "Almost there. Your compatible results are being prepared in the background."],
-      ["Opening match results", "Connection restored. Sending you to your personalized dating page now."]
+      ["Memeriksa isyarat rangkaian", "Barisan padanan anda sedang disambungkan dengan selamat. Sila kekal di halaman ini."],
+      ["Memuatkan profil disahkan", "Profil sebenar dan pilihan aktiviti sedang dimuatkan dari kawasan terdekat."],
+      ["Memulihkan sambungan", "Hampir selesai. Keputusan padanan anda sedang disediakan di latar belakang."],
+      ["Membuka keputusan padanan", "Sambungan dipulihkan. Anda akan dihantar ke halaman temu janji peribadi sekarang."]
     ]
   },
   browserGuide: {
-    eyebrow: "For the best experience",
-    headline: "Open this page in your browser before matching.",
-    body: "Some in-app browsers can block profile loading, registration, and secure matching. Open the link in Safari, Chrome, or your default browser first.",
+    eyebrow: "Untuk pengalaman terbaik",
+    headline: "Buka halaman ini dalam pelayar sebelum padanan.",
+    body: "Sesetengah pelayar dalam aplikasi boleh menghalang gambar profil, pendaftaran, dan padanan selamat. Buka pautan ini dalam Safari, Chrome, atau pelayar utama anda dahulu.",
     steps: [
-      ["1", "Tap the menu icon in the app browser."],
-      ["2", "Choose Open in browser or Open in Safari."],
-      ["3", "If nothing happens, copy the link and paste it into your browser."]
+      ["1", "Tekan ikon menu dalam pelayar aplikasi."],
+      ["2", "Pilih Buka dalam pelayar atau Buka dalam Safari."],
+      ["3", "Jika tiada apa berlaku, salin pautan dan tampal dalam pelayar anda."]
     ],
-    buttonText: "Continue to matching"
+    buttonText: "Teruskan ke padanan"
   },
   nav: {
     links: [
-      ["Activities", "#activities"],
-      ["Verified", "#verified"],
-      ["How it works", "#how"],
-      ["FAQ", "#faq"]
+      ["Aktiviti", "#activities"],
+      ["Disahkan", "#verified"],
+      ["Cara kerja", "#how"],
+      ["Soalan", "#faq"]
     ],
-    ctaText: "Register",
+    ctaText: "Daftar",
     ctaUrl: "#lead-form"
   },
   hero: {
-    eyebrow: "Verified in-person dating",
-    headline: "Book a date, 100% reviewed profiles.",
-    lead: "LumaDate connects you with identity-checked people for real-life dates and activities. No catfishing, no endless chat, no guessing who will show up.",
+    eyebrow: "Temu janji bersemuka yang disahkan",
+    headline: "Tempah temu janji dengan profil 100% disemak.",
+    lead: "lumadate menghubungkan anda dengan orang yang identitinya diperiksa untuk temu janji dan aktiviti sebenar. Tiada profil palsu, tiada sembang tanpa henti, tiada teka-teki siapa yang akan hadir.",
     previewName: "Illy, 25",
     previewCity: "Kuala Lumpur",
-    previewActivity: "Lunch, coffee, city walk",
-    previewCta: "Date her",
+    previewActivity: "Makan tengah hari, kopi, jalan bandar",
+    previewCta: "Temui dia",
     highlights: [
-      ["4.9", "average member rating"],
-      ["20K+", "verified members"],
-      ["100%", "human-reviewed profiles"]
+      ["4.9", "penilaian purata ahli"],
+      ["20K+", "ahli disahkan"],
+      ["100%", "profil disemak manusia"]
     ],
     miniProfiles: [
-      { name: "Alex", city: "Bangkok", activity: "Coffee", image: "assets/avatar-alex.png" },
-      { name: "Nami", city: "Singapore", activity: "Dinner", image: "assets/avatar-nami.png" },
-      { name: "Mika", city: "Tokyo", activity: "Movie", image: "assets/avatar-mika.png" }
+      { name: "Alex", city: "Bangkok", activity: "Kopi", image: "assets/avatar-alex.png" },
+      { name: "Nami", city: "Singapore", activity: "Makan malam", image: "assets/avatar-nami.png" },
+      { name: "Mika", city: "Tokyo", activity: "Filem", image: "assets/avatar-mika.png" }
     ],
-    trust: ["4.9 average rating", "20,000+ verified members", "Every profile human-reviewed"]
+    trust: ["Penilaian purata 4.9", "20,000+ ahli disahkan", "Setiap profil disemak manusia"]
   },
   stats: [
-    ["24,000+", "real dates booked"],
-    ["100%", "identity-checked profiles"],
-    ["4.9", "average member rating"],
-    ["100+", "cities across Asia"]
+    ["24,000+", "temu janji sebenar ditempah"],
+    ["100%", "profil identiti diperiksa"],
+    ["4.9", "penilaian purata ahli"],
+    ["100+", "bandar di Asia"]
   ],
   activities: {
-    eyebrow: "Real dates, real moments",
-    headline: "Every activity is better with the right person.",
+    eyebrow: "Temu janji sebenar, momen sebenar",
+    headline: "Setiap aktiviti lebih baik dengan orang yang sesuai.",
     cards: [
-      ["Kuala Lumpur", "Lunch and a movie", "Tomorrow · 12:00-2:00 PM", "18 applied"],
-      ["Bangkok", "Coffee", "Saturday · 10:00-11:30 AM", "26 applied"],
-      ["Singapore", "City walk", "This weekend · 2:00-4:00 PM", "19 applied"]
+      ["Kuala Lumpur", "Makan tengah hari dan filem", "Esok · 12:00-2:00 PM", "18 berminat"],
+      ["Bangkok", "Kopi", "Sabtu · 10:00-11:30 AM", "26 berminat"],
+      ["Singapore", "Jalan bandar", "Hujung minggu ini · 2:00-4:00 PM", "19 berminat"]
     ]
   },
   verified: {
-    eyebrow: "Verified profiles",
-    headline: "What you see is who you meet.",
-    body: "Every profile is reviewed before it appears. Visitors get a clear promise: real photos, real identity signals, real people, and zero catfishing.",
-    checks: ["Human-reviewed profiles", "Real identity signals", "Private booking history", "Public-first meetup guidance"]
+    eyebrow: "Profil disahkan",
+    headline: "Apa yang anda lihat ialah orang yang anda jumpa.",
+    body: "Setiap profil disemak sebelum dipaparkan. Anda mendapat janji yang jelas: gambar sebenar, isyarat identiti sebenar, orang sebenar, dan tiada penyamaran.",
+    checks: ["Profil disemak manusia", "Isyarat identiti sebenar", "Sejarah tempahan peribadi", "Panduan bertemu di tempat awam"]
   },
   profiles: [
-    { name: "Alena, 26", city: "Kuala Lumpur", activity: "Coffee date", badge: "Verified", image: "assets/avatar-alex.png" },
-    { name: "Audrey, 21", city: "Bangkok", activity: "City walk", badge: "Available", image: "assets/avatar-nami.png" },
-    { name: "Nami, 22", city: "Singapore", activity: "Dinner", badge: "Reviewed", image: "assets/avatar-mika.png" }
+    { name: "Alena, 26", city: "Kuala Lumpur", activity: "Temu janji kopi", badge: "Disahkan", image: "assets/avatar-alex.png" },
+    { name: "Audrey, 21", city: "Bangkok", activity: "Jalan bandar", badge: "Tersedia", image: "assets/avatar-nami.png" },
+    { name: "Nami, 22", city: "Singapore", activity: "Makan malam", badge: "Disemak", image: "assets/avatar-mika.png" }
   ],
   proof: {
-    eyebrow: "Stop wasting time",
-    headline: "Your time is worth more than months of swiping.",
-    body: "LumaDate is designed for people who want a clean path from interest to a respectful real-life plan.",
-    bullets: ["Every profile verified and real", "Book a real date in seconds", "No games, no fake photos", "You choose when and where"]
+    eyebrow: "Berhenti membuang masa",
+    headline: "Masa anda lebih bernilai daripada berbulan-bulan meleret.",
+    body: "lumadate direka untuk orang yang mahukan laluan jelas daripada minat kepada rancangan bersemuka yang sopan.",
+    bullets: ["Setiap profil disahkan dan sebenar", "Tempah temu janji sebenar dalam beberapa saat", "Tiada permainan, tiada gambar palsu", "Anda pilih bila dan di mana"]
   },
   how: {
-    eyebrow: "How it works",
-    headline: "Three steps to a real date.",
+    eyebrow: "Cara kerja",
+    headline: "Tiga langkah ke temu janji sebenar.",
     steps: [
-      ["01", "Browse verified profiles", "Every profile is human-reviewed before users can appear in the experience."],
-      ["02", "Book instantly", "Pick a time, choose the activity, and move forward without endless messaging."],
-      ["03", "Meet in real life", "Enjoy a respectful date or activity with privacy controls and clear expectations."]
+      ["01", "Lihat profil disahkan", "Setiap profil disemak manusia sebelum dipaparkan."],
+      ["02", "Tempah dengan pantas", "Pilih masa, pilih aktiviti, dan teruskan tanpa mesej tanpa henti."],
+      ["03", "Berjumpa secara sebenar", "Nikmati temu janji atau aktiviti sopan dengan privasi dan jangkaan jelas."]
     ]
   },
   conversion: {
-    eyebrow: "Start today",
-    headline: "Meet verified people who are ready for real plans.",
-    body: "Create your profile request and see compatible members near you. Every profile is reviewed, every match is designed for real-life meetups, and your details stay private until you choose to continue.",
-    formTitle: "Register for matches",
-    buttonText: "Register",
-    note: "Your request helps us prioritize compatible verified profiles."
+    eyebrow: "Mula hari ini",
+    headline: "Temui orang disahkan yang bersedia untuk rancangan sebenar.",
+    body: "Hantar permintaan profil anda dan lihat ahli yang sesuai berhampiran anda. Setiap profil disemak, setiap padanan direka untuk pertemuan sebenar, dan maklumat anda kekal peribadi sehingga anda memilih untuk teruskan.",
+    formTitle: "Daftar untuk padanan",
+    buttonText: "Daftar",
+    note: "Permintaan anda membantu kami mengutamakan profil disahkan yang sesuai."
   },
   trust: {
-    eyebrow: "Safe and private",
-    headline: "Built for trust on both sides.",
+    eyebrow: "Selamat dan peribadi",
+    headline: "Dibina untuk kepercayaan kedua-dua pihak.",
     cards: [
-      ["Trust", "Human review", "Real staff review identity signals to reduce bots, fakes, and profile surprises."],
-      ["Privacy", "Controlled details", "Contact details stay private, and users decide what to share before meeting."],
-      ["Choice", "User control", "Users choose who to meet, when to meet, and which activity feels right."]
+      ["Amanah", "Semakan manusia", "Pasukan sebenar menyemak isyarat identiti untuk mengurangkan bot, profil palsu, dan kejutan profil."],
+      ["Privasi", "Maklumat terkawal", "Maklumat hubungan kekal peribadi, dan pengguna memilih apa yang mahu dikongsi sebelum bertemu."],
+      ["Pilihan", "Kawalan pengguna", "Pengguna memilih siapa untuk ditemui, bila mahu bertemu, dan aktiviti yang sesuai."]
     ]
   },
   testimonials: {
-    eyebrow: "Real members, real dates",
-    headline: "Loved by people who are done with fake profiles.",
+    eyebrow: "Ahli sebenar, temu janji sebenar",
+    headline: "Disukai oleh orang yang sudah penat dengan profil palsu.",
     quotes: [
-      ["I matched, booked, and met her the same week. No games, no ghosting, and she looked like her photos.", "Daniel · Singapore"],
-      ["The verification makes the difference. Everyone I met was exactly who they said they were.", "Marcus · Kuala Lumpur"],
-      ["I stopped wasting weeks swiping. Now I just book a real date and go.", "Kenji · Tokyo"]
+      ["Saya dipadankan, menempah, dan bertemu dia pada minggu yang sama. Tiada permainan, tiada hilang begitu saja, dan dia sama seperti gambarnya.", "Daniel · Singapore"],
+      ["Pengesahan memang membuat perbezaan. Semua orang yang saya jumpa benar-benar seperti yang mereka nyatakan.", "Marcus · Kuala Lumpur"],
+      ["Saya berhenti membazir minggu demi minggu meleret. Sekarang saya hanya tempah temu janji sebenar dan pergi.", "Kenji · Tokyo"]
     ]
   },
   faq: {
-    eyebrow: "Good to know",
-    headline: "Frequently asked questions",
+    eyebrow: "Perlu diketahui",
+    headline: "Soalan lazim",
     items: [
-      ["Are the profiles really verified?", "Yes. The page is written around a human-review promise, identity signals, real photos, and a safer real-life meetup process."],
-      ["Is this safe and private?", "The experience emphasizes privacy, public-first meetup guidance, and user control over who to meet, when, and where."],
-      ["How does booking a date work?", "Visitors browse verified profiles, choose an activity and time, then continue through your configured app, web app, or external booking page."],
-      ["Which cities can this support?", "The page can support city-specific campaigns across Asia. Update the city list, profile cards, and activity cards to match each ad campaign."]
+      ["Adakah profil benar-benar disahkan?", "Ya. Halaman ini menekankan semakan manusia, isyarat identiti, gambar sebenar, dan proses pertemuan yang lebih selamat."],
+      ["Adakah ini selamat dan peribadi?", "Pengalaman ini menekankan privasi, panduan bertemu di tempat awam, dan kawalan pengguna terhadap siapa, bila, dan di mana untuk bertemu."],
+      ["Bagaimana tempahan temu janji berfungsi?", "Pelawat melihat profil disahkan, memilih aktiviti dan masa, kemudian teruskan melalui aplikasi, web app, atau halaman tempahan yang anda tetapkan."],
+      ["Bandar mana yang boleh disokong?", "Halaman ini boleh menyokong kempen mengikut bandar di Asia. Kemas kini senarai bandar, kad profil, dan kad aktiviti mengikut kempen iklan."]
     ]
   },
   finalCta: {
-    headline: "Your next real date is one tap away.",
-    body: "Verified people, real activities, instant booking, and a conversion flow built for serious paid traffic.",
-    primaryText: "Register",
+    headline: "Temu janji sebenar anda seterusnya hanya satu klik sahaja.",
+    body: "Orang disahkan, aktiviti sebenar, tempahan pantas, dan aliran penukaran yang dibina untuk trafik iklan berbayar.",
+    primaryText: "Daftar",
     primaryUrl: "#lead-form",
-    secondaryText: "Get the invite",
+    secondaryText: "Dapatkan jemputan",
     secondaryUrl: "#lead-form"
   }
 };

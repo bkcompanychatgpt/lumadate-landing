@@ -69,28 +69,28 @@
   function normalizeCms(cms) {
     const defaultMiniImages = ["assets/avatar-alex.png", "assets/avatar-nami.png", "assets/avatar-mika.png"];
     if (cms.settings?.brandName === "LumaDate") cms.settings.brandName = "lumadate";
-    if (cms.nav?.ctaText === "Open app") cms.nav.ctaText = "Register";
-    if (cms.finalCta?.primaryText === "Open app") cms.finalCta.primaryText = "Register";
+    if (cms.nav?.ctaText === "Open app") cms.nav.ctaText = "Daftar";
+    if (cms.finalCta?.primaryText === "Open app") cms.finalCta.primaryText = "Daftar";
     if (cms.conversion?.headline === "Pixels, client scripts, and campaign data are ready to plug in.") {
-      cms.conversion.eyebrow = "Start today";
-      cms.conversion.headline = "Meet verified people who are ready for real plans.";
-      cms.conversion.body = "Create your profile request and see compatible members near you. Every profile is reviewed, every match is designed for real-life meetups, and your details stay private until you choose to continue.";
-      cms.conversion.formTitle = "Register for matches";
-      cms.conversion.buttonText = "Register";
-      cms.conversion.note = "Your request helps us prioritize compatible verified profiles.";
+      cms.conversion.eyebrow = "Mula hari ini";
+      cms.conversion.headline = "Temui orang disahkan yang bersedia untuk rancangan sebenar.";
+      cms.conversion.body = "Hantar permintaan profil anda dan lihat ahli yang sesuai berhampiran anda. Setiap profil disemak, setiap padanan direka untuk pertemuan sebenar, dan maklumat anda kekal peribadi sehingga anda memilih untuk teruskan.";
+      cms.conversion.formTitle = "Daftar untuk padanan";
+      cms.conversion.buttonText = "Daftar";
+      cms.conversion.note = "Permintaan anda membantu kami mengutamakan profil disahkan yang sesuai.";
     }
     if (!Array.isArray(cms.hero?.highlights) || !cms.hero.highlights.length) {
       cms.hero.highlights = [
-        ["4.9", "average member rating"],
-        ["20K+", "verified members"],
-        ["100%", "human-reviewed profiles"]
+        ["4.9", "penilaian purata ahli"],
+        ["20K+", "ahli disahkan"],
+        ["100%", "profil disemak manusia"]
       ];
     }
     if (!Array.isArray(cms.hero?.miniProfiles) || !cms.hero.miniProfiles.length) {
       cms.hero.miniProfiles = [
-        { name: "Alex", city: "Bangkok", activity: "Coffee", image: defaultMiniImages[0] },
-        { name: "Nami", city: "Singapore", activity: "Dinner", image: defaultMiniImages[1] },
-        { name: "Mika", city: "Tokyo", activity: "Movie", image: defaultMiniImages[2] }
+        { name: "Alex", city: "Bangkok", activity: "Kopi", image: defaultMiniImages[0] },
+        { name: "Nami", city: "Singapore", activity: "Makan malam", image: defaultMiniImages[1] },
+        { name: "Mika", city: "Tokyo", activity: "Filem", image: defaultMiniImages[2] }
       ];
     }
     cms.hero.miniProfiles = cms.hero.miniProfiles.map((profile, index) => ({
@@ -174,13 +174,40 @@
     const description = document.querySelector('meta[name="description"]');
     if (description && cms.settings?.description) description.setAttribute("content", cms.settings.description);
 
+    const accessImage = document.querySelector(".access-hero-card > img");
+    if (accessImage && cms.images?.accessHero) accessImage.src = cms.images.accessHero;
+    setText(".access-brand strong", cms.accessPrep?.brand || "lumadate MY");
+    setHtml(".access-status", `<span></span>${esc(cms.accessPrep?.status || "Sedang menyediakan akses")}`);
+    setText("#access-prep-title", cms.accessPrep?.title || "Akses percuma sedang disediakan");
+    setText(".access-hero-copy p", cms.accessPrep?.body || "Kekal di halaman ini sebentar sementara kami memuatkan profil berdekatan yang sesuai untuk anda.");
+    setText(".access-hero-copy strong", cms.accessPrep?.waitText || "Anggaran masa menunggu: 0s");
+    setText(".access-queue strong", cms.accessPrep?.queueTitle || "Profil sedang menunggu");
+    setText(".access-queue p", cms.accessPrep?.queueNote || "Akses anda hampir selesai");
+    setText(".access-panel-tags span:first-child", cms.accessPrep?.panelBadge || "• Padanan MY");
+    setText(".access-panel-tags span:last-child", cms.accessPrep?.panelStatus || "Sedia");
+    setText(".access-panel h2", cms.accessPrep?.panelTitle || "Membuka temu janji tempatan");
+    setText(".access-panel > p", cms.accessPrep?.panelBody || "Kami sedang menyusun orang berdekatan, memeriksa isyarat profil, dan menyediakan akses selamat sebelum padanan diteruskan.");
+    setText(".access-progress-labels span:first-child", cms.accessPrep?.progressStart || "Sedia");
+    setText(".access-progress-labels span:last-child", cms.accessPrep?.progressEnd || "Dibuka");
+    if (Array.isArray(cms.accessPrep?.steps)) {
+      setHtml(".access-steps", cms.accessPrep.steps.map(([num, title, body]) => `<div><span>${esc(num)}</span><p><strong>${esc(title)}</strong><small>${esc(body)}</small></p></div>`).join(""));
+    }
+    setText(".access-ready-note strong", cms.accessPrep?.readyTitle || "Akses percuma telah dibuka");
+    setText(".access-ready-note span", cms.accessPrep?.readyBody || "Buka halaman seterusnya apabila anda sudah bersedia.");
+    setText("#continue-to-guide", cms.accessPrep?.buttonText || "Teruskan akses percuma");
+    setText(".access-footnote", cms.accessPrep?.footnote || "Padanan sudah sedia. Sila teruskan di bawah.");
+    setText(".access-faq .eyebrow", cms.accessPrep?.faqEyebrow || "Soalan biasa");
+    if (Array.isArray(cms.accessPrep?.faq)) {
+      setHtml(".access-faq", `<p class="eyebrow">${esc(cms.accessPrep.faqEyebrow || "Soalan biasa")}</p>` + cms.accessPrep.faq.map(([q, a], index) => `<details${index === 0 ? " open" : ""}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join(""));
+    }
+
     setText("#start-match", cms.matchGate.buttonText);
     setText("#match-status", cms.matchGate.title);
     setText("#match-detail", cms.matchGate.detail);
-    setText(".browser-guide .eyebrow", cms.browserGuide?.eyebrow || "For the best experience");
-    setText("#browser-guide-title", cms.browserGuide?.headline || "Open this page in your browser before matching.");
-    setText(".guide-body", cms.browserGuide?.body || "Some in-app browsers can block profile loading, registration, and secure matching. Open the link in Safari, Chrome, or your default browser first.");
-    setText("#continue-to-match", cms.browserGuide?.buttonText || "Continue to matching");
+    setText(".browser-guide .eyebrow", cms.browserGuide?.eyebrow || "Untuk pengalaman terbaik");
+    setText("#browser-guide-title", cms.browserGuide?.headline || "Buka halaman ini dalam pelayar sebelum padanan.");
+    setText(".guide-body", cms.browserGuide?.body || "Sesetengah pelayar dalam aplikasi boleh menghalang gambar profil, pendaftaran, dan padanan selamat. Buka pautan ini dalam Safari, Chrome, atau pelayar utama anda dahulu.");
+    setText("#continue-to-match", cms.browserGuide?.buttonText || "Teruskan ke padanan");
     if (Array.isArray(cms.browserGuide?.steps)) {
       setHtml(".guide-steps", cms.browserGuide.steps.map(([num, text]) => `<div><span>${esc(num)}</span><p>${esc(text)}</p></div>`).join(""));
     }
@@ -248,7 +275,7 @@
     setText(".lead-form h3", cms.conversion.formTitle);
     setText(".lead-form button", cms.conversion.buttonText);
     setText(".form-note", cms.conversion.note);
-    setHtml('.lead-form select[name="country"]', `<option value="">Choose a country</option>${countryOptions()}`);
+    setHtml('.lead-form select[name="country"]', `<option value="">Pilih negara</option>${countryOptions()}`);
 
     setText(".trust-section > .eyebrow", cms.trust.eyebrow);
     setText(".trust-section > h2", cms.trust.headline);

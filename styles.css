@@ -33,6 +33,11 @@ body.guide-ready {
   overflow: auto;
 }
 
+body.prep-ready {
+  overflow: auto;
+  background: #12071d;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -54,6 +59,343 @@ select {
   font-size: 13px;
 }
 
+.access-prep {
+  min-height: 100vh;
+  color: #fff;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(128, 46, 206, 0.5), transparent 28%),
+    radial-gradient(circle at 75% 24%, rgba(214, 32, 134, 0.18), transparent 28%),
+    #12071d;
+}
+
+.access-prep[hidden] {
+  display: none;
+}
+
+.access-shell {
+  width: min(100% - 28px, 506px);
+  margin: 0 auto;
+  padding: 18px 0 32px;
+}
+
+.access-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.access-brand,
+.access-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+}
+
+.access-brand span {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e32286, #7933e3);
+  box-shadow: 0 12px 28px rgba(227, 34, 134, 0.34);
+}
+
+.access-status {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.09);
+  font-size: 13px;
+}
+
+.access-status span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2ed2b1;
+  box-shadow: 0 0 0 7px rgba(46, 210, 177, 0.13);
+}
+
+.access-hero-card {
+  position: relative;
+  min-height: 596px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #251134;
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.42);
+}
+
+.access-hero-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.access-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 26%, rgba(18, 7, 29, 0.18) 48%, rgba(18, 7, 29, 0.92) 100%),
+    linear-gradient(90deg, rgba(18, 7, 29, 0.08), rgba(18, 7, 29, 0.16));
+}
+
+.access-hero-copy {
+  position: absolute;
+  inset: auto 22px 24px;
+}
+
+.access-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.access-tags span,
+.access-panel-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(12px);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.access-hero-copy h1 {
+  margin: 0 0 10px;
+  max-width: 430px;
+  font-size: clamp(34px, 8vw, 48px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.access-hero-copy p,
+.access-hero-copy strong {
+  display: block;
+  max-width: 400px;
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.access-queue {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: end;
+  margin: 18px 0 22px;
+}
+
+.access-queue strong,
+.access-queue p {
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.access-avatars {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.access-avatars figure {
+  margin: 0;
+  text-align: center;
+}
+
+.access-avatars img {
+  width: 64px;
+  height: 64px;
+  display: block;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(226, 32, 134, 0.65);
+}
+
+.access-avatars figcaption {
+  margin-top: 7px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.access-panel,
+.access-faq {
+  margin-top: 16px;
+  padding: 20px;
+  border-radius: 26px;
+  color: #1a1320;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.access-panel-tags {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.access-panel-tags span {
+  border-color: transparent;
+  color: #bd185f;
+  background: #ffe7f4;
+}
+
+.access-panel-tags span:last-child {
+  color: #8438e8;
+  background: #f4e5ff;
+}
+
+.access-panel h2 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.access-panel > p,
+.access-footnote {
+  color: #756586;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.access-progress {
+  height: 12px;
+  margin: 18px 0 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f2e8f8;
+}
+
+.access-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #e02086, #8438e8);
+}
+
+.access-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #746885;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.access-steps {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.access-steps div {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 13px;
+  border: 1px solid #eadcf2;
+  border-radius: 18px;
+  background: #fbf6ff;
+}
+
+.access-steps span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #c52666;
+  background: #ffe8f2;
+  font-weight: 950;
+}
+
+.access-steps p {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+}
+
+.access-steps strong {
+  color: #1a1320;
+  font-size: 15px;
+}
+
+.access-steps small {
+  color: #746885;
+  font-size: 13px;
+}
+
+.access-ready-note {
+  display: grid;
+  gap: 5px;
+  margin: 10px 0 14px;
+  padding: 18px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #21102f, #482064);
+}
+
+.access-ready-note span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+}
+
+.access-primary-btn {
+  width: 100%;
+  min-height: 64px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #e02086, #8438e8);
+  box-shadow: 0 20px 44px rgba(132, 56, 232, 0.28);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.access-footnote {
+  margin: 12px 0 0;
+  text-align: center;
+}
+
+.access-faq .eyebrow {
+  color: #746885;
+}
+
+.access-faq details {
+  padding: 14px 0;
+  border-top: 1px solid #eadcf2;
+}
+
+.access-faq summary {
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.access-faq p {
+  color: #746885;
+  line-height: 1.6;
+}
+
 .browser-guide {
   min-height: 100vh;
   display: block;
@@ -73,7 +415,7 @@ select {
 .browser-guide-card {
   width: min(100% - 18px, 620px);
   margin: 0 auto;
-  padding: 0 18px 24px;
+  padding: 14px 18px 24px;
   border-radius: 20px;
   background: #fff;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
@@ -1439,6 +1781,73 @@ cite {
 }
 
 @media (max-width: 860px) {
+  .access-shell {
+    width: min(100% - 18px, 420px);
+    padding: 14px 0 28px;
+  }
+
+  .access-nav {
+    margin-bottom: 12px;
+  }
+
+  .access-brand strong {
+    font-size: 15px;
+  }
+
+  .access-status {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  .access-hero-card {
+    min-height: 590px;
+    border-radius: 24px;
+  }
+
+  .access-hero-copy {
+    inset: auto 18px 20px;
+  }
+
+  .access-hero-copy h1 {
+    font-size: 34px;
+  }
+
+  .access-hero-copy p,
+  .access-hero-copy strong {
+    font-size: 15px;
+  }
+
+  .access-queue {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .access-avatars {
+    gap: 9px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .access-avatars img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .access-panel,
+  .access-faq {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .access-panel h2 {
+    font-size: 25px;
+  }
+
+  .access-primary-btn {
+    min-height: 60px;
+    font-size: 17px;
+  }
+
   .browser-guide {
     display: block;
     min-height: 100vh;
@@ -1448,7 +1857,7 @@ cite {
   .browser-guide-card {
     min-height: auto;
     display: block;
-    padding: 0 18px 24px;
+    padding: 14px 18px 24px;
   }
 
   .guide-copy .eyebrow {
