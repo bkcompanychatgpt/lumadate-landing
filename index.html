@@ -6,7 +6,7 @@
     <title>LumaDate - Match Loading</title>
     <meta
       name="description"
-      content="Click to begin a 10-second matching sequence before entering the LumaDate landing page."
+      content="Click to begin a matching sequence before entering the LumaDate landing page."
     />
     <meta property="og:title" content="LumaDate - Match Loading" />
     <meta property="og:description" content="Click to match, then continue to the dating landing page." />
@@ -35,11 +35,14 @@
       <button id="start-match" class="match-start-btn" type="button">Click to match</button>
 
       <section id="countdown-stage" class="countdown-stage" aria-live="polite" hidden>
-        <div class="match-ring" id="match-ring">
-          <span id="countdown-number">10</span>
+        <div class="match-ring" id="match-ring" aria-hidden="true">
+          <span class="signal-dot"></span>
+          <span class="signal-dot"></span>
+          <span class="signal-dot"></span>
+          <span class="cache-bar"></span>
         </div>
-        <h1 id="match-status">Finding your match</h1>
-        <p id="match-detail">The system is matching you with someone compatible. Please wait...</p>
+        <h1 id="match-status">Reconnecting match network</h1>
+        <p id="match-detail">Connection is being restored while your verified profiles are cached. Please wait...</p>
       </section>
     </main>
 

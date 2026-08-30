@@ -29,13 +29,13 @@ window.DEFAULT_LANDING_CMS = {
   },
   matchGate: {
     buttonText: "Click to match",
-    title: "Finding your match",
-    detail: "The system is matching you with someone compatible. Please wait...",
+    title: "Reconnecting match network",
+    detail: "Connection is being restored while your verified profiles are cached. Please wait...",
     states: [
-      ["Checking verified profiles", "The system is matching you with someone compatible. Please wait..."],
-      ["Comparing city and distance", "Prioritizing active people who are available for a real meetup."],
-      ["Reading activity preferences", "Coffee, dinner, movies, and city walks are being matched now."],
-      ["Preparing your results", "Almost ready. Opening your personalized landing page."]
+      ["Checking network signal", "Your match queue is reconnecting securely. Please stay on this page."],
+      ["Caching verified profiles", "Loading real profiles and activity preferences from the nearest match node."],
+      ["Restoring connection", "Almost there. Your compatible results are being prepared in the background."],
+      ["Opening match results", "Connection restored. Sending you to your personalized dating page now."]
     ]
   },
   nav: {

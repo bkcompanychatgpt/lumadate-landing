@@ -249,23 +249,115 @@ p {
   width: min(48vw, 220px);
   height: min(48vw, 220px);
   margin: 0 auto 28px;
-  display: grid;
-  place-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   border-radius: 50%;
-  background: conic-gradient(var(--coral) var(--progress, 0deg), rgba(255, 255, 255, 0.12) 0);
+  background:
+    radial-gradient(circle at center, rgba(18, 16, 14, 0.92) 0 44%, transparent 45%),
+    conic-gradient(from 180deg, rgba(255, 255, 255, 0.1), var(--coral), rgba(17, 124, 114, 0.9), rgba(255, 255, 255, 0.1));
+  box-shadow:
+    inset 0 0 0 22px rgba(255, 255, 255, 0.08),
+    0 0 46px rgba(232, 93, 79, 0.28);
+  animation: cache-scan 1.7s linear infinite;
 }
 
-.match-ring span {
-  width: calc(100% - 42px);
-  height: calc(100% - 42px);
-  display: grid;
-  place-items: center;
+.match-ring::before,
+.match-ring::after {
+  content: "";
+  position: absolute;
+  inset: 38%;
+  border: 4px solid rgba(255, 255, 255, 0.72);
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-radius: 50%;
-  color: #fff;
-  background: #151311;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: clamp(56px, 14vw, 88px);
-  font-weight: 900;
+}
+
+.match-ring::after {
+  inset: 28%;
+  opacity: 0.38;
+  animation: signal-drop 1.4s ease-in-out infinite;
+}
+
+.signal-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  animation: cache-pulse 1.1s ease-in-out infinite;
+}
+
+.signal-dot:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.signal-dot:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.cache-bar {
+  position: absolute;
+  left: 24%;
+  right: 24%;
+  bottom: 34px;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.cache-bar::before {
+  content: "";
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--coral);
+  animation: cache-buffer 1.45s ease-in-out infinite;
+}
+
+@keyframes cache-scan {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cache-pulse {
+  0%,
+  100% {
+    transform: scale(0.68);
+    opacity: 0.45;
+  }
+
+  45% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes signal-drop {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(0.94);
+  }
+
+  50% {
+    opacity: 0.64;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes cache-buffer {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  100% {
+    transform: translateX(260%);
+  }
 }
 
 .landing {

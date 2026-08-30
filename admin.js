@@ -153,7 +153,7 @@
         ${textField("settings.title", "SEO title")}
         ${textField("settings.description", "SEO description")}
         ${textField("settings.postMatchDestination", "After-match redirect URL")}
-        ${numberField("settings.countdownSeconds", "Countdown seconds")}
+        ${numberField("settings.countdownSeconds", "Loading duration seconds")}
         ${textField("settings.appStoreUrl", "App Store URL")}
         ${textField("settings.googlePlayUrl", "Google Play URL")}
         ${textField("settings.webAppUrl", "Web App URL")}
@@ -161,8 +161,8 @@
       </div>`,
       match: () => `<div class="grid">
         ${textField("matchGate.buttonText", "Button text")}
-        ${textField("matchGate.title", "Countdown title")}
-        ${textarea("matchGate.detail", "Countdown message")}
+        ${textField("matchGate.title", "Loading title")}
+        ${textarea("matchGate.detail", "Loading message")}
         ${renderPairArray("matchGate.states", ["Status title", "Status message"])}
       </div>`,
       hero: () => `<div class="grid">

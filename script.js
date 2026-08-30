@@ -11,7 +11,6 @@
   const landing = document.querySelector("#landing");
   const startButton = document.querySelector("#start-match");
   const countdownStage = document.querySelector("#countdown-stage");
-  const countdownNumber = document.querySelector("#countdown-number");
   const matchRing = document.querySelector("#match-ring");
   const matchStatus = document.querySelector("#match-status");
   const matchDetail = document.querySelector("#match-detail");
@@ -20,10 +19,10 @@
   const trackingConfig = cmsConfig.tracking || {};
 
   const states = cmsConfig.matchGate?.states || [
-    ["Checking verified profiles", "The system is matching you with someone compatible. Please wait..."],
-    ["Comparing city and distance", "Prioritizing active people who are available for a real meetup."],
-    ["Reading activity preferences", "Coffee, dinner, movies, and city walks are being matched now."],
-    ["Preparing your results", "Almost ready. Opening your personalized landing page."]
+    ["Checking network signal", "Your match queue is reconnecting securely. Please stay on this page."],
+    ["Caching verified profiles", "Loading real profiles and activity preferences from the nearest match node."],
+    ["Restoring connection", "Almost there. Your compatible results are being prepared in the background."],
+    ["Opening match results", "Connection restored. Sending you to your personalized dating page now."]
   ];
 
   const track = (eventName, payload = {}) => {
@@ -116,38 +115,34 @@
     window.scrollTo(0, 0);
   }
 
-  function startCountdown() {
+  function startMatchingDelay() {
     const total = Number(config.countdownSeconds || 10);
-    let remaining = total;
 
-    if (!startButton || !countdownStage || !countdownNumber || !matchRing || !matchStatus || !matchDetail) return;
+    if (!startButton || !countdownStage || !matchRing || !matchStatus || !matchDetail) return;
 
     startButton.disabled = true;
     startButton.hidden = true;
     countdownStage.hidden = false;
-    countdownNumber.textContent = String(remaining);
-    matchRing.style.setProperty("--progress", "0deg");
-    matchStatus.textContent = cmsConfig.matchGate?.title || "Finding your match";
-    matchDetail.textContent = cmsConfig.matchGate?.detail || "The system is matching you with someone compatible. Please wait...";
+    matchRing.removeAttribute("style");
+    matchStatus.textContent = cmsConfig.matchGate?.title || "Reconnecting match network";
+    matchDetail.textContent = cmsConfig.matchGate?.detail || "Connection is being restored while your verified profiles are cached. Please wait...";
     track("StartMatch", { seconds: total });
 
-    const timer = window.setInterval(() => {
-      remaining -= 1;
-      if (remaining <= 0) {
-        window.clearInterval(timer);
-        showLanding();
-        return;
-      }
-
-      const elapsed = total - remaining;
-      const state = states[Math.min(states.length - 1, Math.floor((elapsed / total) * states.length))];
-      const degrees = Math.round((elapsed / total) * 360);
-
-      countdownNumber.textContent = String(remaining);
-      matchRing.style.setProperty("--progress", `${degrees}deg`);
+    let stateIndex = 0;
+    const updateState = () => {
+      const state = states[Math.min(states.length - 1, stateIndex)];
       matchStatus.textContent = state[0];
       matchDetail.textContent = state[1];
-    }, 1000);
+      stateIndex += 1;
+    };
+    const intervalMs = Math.max(1200, Math.floor((total * 1000) / Math.max(states.length, 1)));
+    updateState();
+
+    const stateTimer = window.setInterval(updateState, intervalMs);
+    window.setTimeout(() => {
+      window.clearInterval(stateTimer);
+      showLanding();
+    }, total * 1000);
   }
 
   document.addEventListener("click", (event) => {
@@ -157,7 +152,7 @@
     track("CtaClick", { label, href: cta.getAttribute("href") || "" });
   });
 
-  startButton?.addEventListener("click", startCountdown);
+  startButton?.addEventListener("click", startMatchingDelay);
 
   leadForm?.addEventListener("submit", (event) => {
     event.preventDefault();
