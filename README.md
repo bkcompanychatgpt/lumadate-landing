@@ -24,6 +24,8 @@ This is a static landing page package for paid traffic and client delivery. It i
 - `cms.js`: reads saved admin settings and renders the landing page
 - `site-config.js`: default editable content
 - `server-tracking-worker.js`: server-side tracking endpoint example for token-based API callbacks
+- `server.js`: Render web service server for static pages and `/api/track`
+- `render.yaml`: Render Blueprint for deploying the landing page and backend together
 - `assets/hero-meetup.png`: hero visual
 - `assets/profile-wall.png`: profile wall visual
 - `vendor/customer-package.js`: client package slot
@@ -80,11 +82,11 @@ Important: access tokens must not be placed inside `index.html`, `landing.html`,
 
 If a client gives you a Meta Conversions API token, TikTok Events API token, or Google Measurement Protocol secret:
 
-1. Deploy `server-tracking-worker.js` to your serverless platform.
-2. Put the client tokens in server environment variables.
+1. Deploy this project to Render as a Web Service, or deploy `server-tracking-worker.js` to another serverless platform.
+2. Put the client tokens in Render environment variables or your serverless environment.
 3. Open `admin.html`.
 4. Go to `Tracking`.
-5. Enter your deployed endpoint URL in `Server tracking endpoint`.
+5. Use `/api/track` in `Server tracking endpoint` when deploying this project on Render.
 6. Enter the same non-secret value in `Public event key` and your server environment variable `PUBLIC_EVENT_KEY`.
 7. Save changes.
 
@@ -101,6 +103,29 @@ PUBLIC_EVENT_KEY=
 ```
 
 The landing page sends every event to both browser pixels and the server endpoint. The server endpoint then forwards the event to Meta, TikTok, and GA4 without exposing client tokens in the browser.
+
+## Deploy On Render
+
+This project is ready for Render as a Web Service:
+
+```text
+Build Command: npm install
+Start Command: npm start
+```
+
+Render will provide a default `*.onrender.com` domain after deployment. The app binds to `0.0.0.0` and uses Render's `PORT` environment variable.
+
+Add these environment variables in Render when the client provides token-based tracking:
+
+```text
+PUBLIC_EVENT_KEY=
+META_PIXEL_ID=
+META_ACCESS_TOKEN=
+TIKTOK_PIXEL_CODE=
+TIKTOK_ACCESS_TOKEN=
+GA4_MEASUREMENT_ID=
+GA4_API_SECRET=
+```
 
 What this package can guarantee locally:
 

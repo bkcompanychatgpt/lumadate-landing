@@ -15,7 +15,7 @@ window.DEFAULT_LANDING_CMS = {
     metaPixelId: "",
     tiktokPixelId: "",
     googleTagId: "",
-    serverTrackingEndpoint: "",
+    serverTrackingEndpoint: "/api/track",
     publicEventKey: "",
     metaTestEventCode: "",
     tiktokTestEventCode: "",

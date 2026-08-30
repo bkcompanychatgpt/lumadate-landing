@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: lumadate-landing
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: PUBLIC_EVENT_KEY
+        sync: false
+      - key: META_PIXEL_ID
+        sync: false
+      - key: META_ACCESS_TOKEN
+        sync: false
+      - key: TIKTOK_PIXEL_CODE
+        sync: false
+      - key: TIKTOK_ACCESS_TOKEN
+        sync: false
+      - key: GA4_MEASUREMENT_ID
+        sync: false
+      - key: GA4_API_SECRET
+        sync: false

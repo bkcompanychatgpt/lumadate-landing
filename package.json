@@ -1,0 +1,13 @@
+{
+  "name": "lumadate-landing-render",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check script.js && node --check cms.js && node --check admin.js && node --check site-config.js && node --check vendor/package-loader.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
