@@ -4,7 +4,7 @@ This is a static landing page package for paid traffic and client delivery. It i
 
 - Minimal click-to-match gate
 - 10-second full-page matching countdown
-- Hard redirect to `landing.html` after matching
+- Hard redirect to `app.html` after matching
 - Admin dashboard for editing copy, images, links, tracking, and campaign data
 - Full English conversion landing page
 - UTM capture
@@ -16,7 +16,7 @@ This is a static landing page package for paid traffic and client delivery. It i
 ## Files
 
 - `index.html`: page structure, SEO, and pixel install zone
-- `landing.html`: the full landing page visitors see after the countdown
+- `landing.html`: the full landing page visitors see after the countdown, served publicly as `app.html` on Render
 - `styles.css`: visual design and responsive layout
 - `script.js`: matching countdown, routing, lead form, and tracking events
 - `admin.html`: local admin dashboard
@@ -195,7 +195,7 @@ If the client gives you a script snippet, paste it under this comment in `index.
 Open `index.html` and edit:
 
 ```js
-destinationAfterMatch: "landing.html"
+destinationAfterMatch: "app.html"
 ```
 
 To send users to an external landing page after the 10-second match, use:

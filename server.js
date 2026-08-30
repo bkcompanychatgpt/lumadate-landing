@@ -94,7 +94,8 @@ async function handleTrack(request, response) {
 }
 
 function serveStatic(pathname, response) {
-  const cleanPath = pathname === "/" ? "/index.html" : decodeURIComponent(pathname);
+  const requestedPath = pathname === "/app.html" ? "/landing.html" : pathname;
+  const cleanPath = requestedPath === "/" ? "/index.html" : decodeURIComponent(requestedPath);
   const filePath = normalize(join(root, cleanPath));
 
   if (!filePath.startsWith(root) || !existsSync(filePath)) {

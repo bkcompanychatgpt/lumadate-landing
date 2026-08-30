@@ -4,7 +4,7 @@ window.DEFAULT_LANDING_CMS = {
     brandInitial: "L",
     title: "LumaDate - Verified Real-Life Dates",
     description: "Book verified real-life dates and social activities with human-reviewed profiles, instant booking, privacy controls, and full-funnel tracking.",
-    postMatchDestination: "landing.html",
+    postMatchDestination: "app.html",
     countdownSeconds: 10,
     appStoreUrl: "#lead-form",
     googlePlayUrl: "#lead-form",

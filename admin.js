@@ -381,7 +381,7 @@
   document.querySelector("#preview-btn").addEventListener("click", () => {
     syncPanel();
     window.saveLandingCms(config);
-    window.open("landing.html", "_blank");
+    window.open("app.html", "_blank");
   });
 
   document.querySelector("#export-btn").addEventListener("click", () => {
