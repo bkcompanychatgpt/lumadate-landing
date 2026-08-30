@@ -1,0 +1,15 @@
+{
+  "enabled": false,
+  "css": [
+    "vendor/client-package/package.css"
+  ],
+  "js": [
+    "vendor/client-package/package.js"
+  ],
+  "html": [
+    {
+      "target": "body-end",
+      "content": ""
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LumaDate Admin</title>
+    <link rel="stylesheet" href="admin.css?v=sidebar-hard-fix-2" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        overflow: hidden !important;
+      }
+
+      .admin-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 363px !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+        background: #161513 !important;
+        z-index: 20 !important;
+        overscroll-behavior: contain !important;
+      }
+
+      .admin-main {
+        margin-left: 363px !important;
+        height: 100dvh !important;
+        overflow-y: auto !important;
+      }
+
+      @media (max-width: 900px) {
+        html,
+        body {
+          height: auto;
+          overflow: auto !important;
+        }
+
+        .admin-sidebar {
+          position: static !important;
+          width: auto !important;
+          height: auto !important;
+          max-height: none !important;
+          overflow: visible !important;
+        }
+
+        .admin-main {
+          margin-left: 0 !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="admin-sidebar">
+      <div>
+        <span class="admin-mark">L</span>
+        <h1>Landing Admin</h1>
+        <p>Edit the click-to-match gate, landing page content, images, tracking, and campaign settings.</p>
+      </div>
+      <nav id="admin-tabs" class="admin-tabs" aria-label="Admin sections"></nav>
+      <div class="admin-links">
+        <a href="index.html" target="_blank" rel="noreferrer">Open match page</a>
+        <a href="landing.html" target="_blank" rel="noreferrer">Open landing page</a>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <p class="eyebrow">Control center</p>
+          <h2 id="panel-title">Content</h2>
+        </div>
+        <div class="topbar-actions">
+          <button id="preview-btn" type="button">Preview Landing</button>
+          <button id="save-btn" class="primary" type="button">Save Changes</button>
+        </div>
+      </header>
+
+      <section id="panel" class="panel"></section>
+
+      <section class="admin-actions">
+        <div>
+          <h3>Import / Export</h3>
+          <p>Export a campaign configuration, send it to a client, or import another saved setup.</p>
+        </div>
+        <div class="action-row">
+          <button id="export-btn" type="button">Export JSON</button>
+          <label class="file-btn">
+            Import JSON
+            <input id="import-file" type="file" accept="application/json" />
+          </label>
+          <button id="reset-btn" class="danger" type="button">Reset Default</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="site-config.js?v=tracking-server-v2"></script>
+    <script src="cms.js?v=tracking-server-v2"></script>
+    <script src="admin.js?v=tracking-server-v2"></script>
+  </body>
+</html>

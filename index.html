@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LumaDate - Match Loading</title>
+    <meta
+      name="description"
+      content="Click to begin a 10-second matching sequence before entering the LumaDate landing page."
+    />
+    <meta property="og:title" content="LumaDate - Match Loading" />
+    <meta property="og:description" content="Click to match, then continue to the dating landing page." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/profile-wall.png" />
+    <link rel="preload" as="image" href="assets/profile-wall.png" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Pixel / tracking install zone: paste Meta Pixel, TikTok Pixel, Google Tag, affiliate scripts, or client package snippets here. -->
+    <script>
+      window.LANDING_CONFIG = {
+        brandName: "LumaDate",
+        destinationAfterMatch: "landing.html",
+        countdownSeconds: 10,
+        customerPackageUrl: "vendor/customer-package.js",
+        pixels: {
+          metaPixelId: "",
+          tiktokPixelId: "",
+          googleTagId: ""
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <main id="match-gate" class="match-gate" aria-labelledby="match-status">
+      <button id="start-match" class="match-start-btn" type="button">Click to match</button>
+
+      <section id="countdown-stage" class="countdown-stage" aria-live="polite" hidden>
+        <div class="match-ring" id="match-ring">
+          <span id="countdown-number">10</span>
+        </div>
+        <h1 id="match-status">Finding your match</h1>
+        <p id="match-detail">The system is matching you with someone compatible. Please wait...</p>
+      </section>
+    </main>
+
+    <script src="vendor/customer-package.js" defer></script>
+    <script src="vendor/package-loader.js" defer></script>
+    <script src="site-config.js" defer></script>
+    <script src="cms.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
