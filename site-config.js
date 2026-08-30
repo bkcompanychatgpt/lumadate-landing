@@ -62,9 +62,9 @@ window.DEFAULT_LANDING_CMS = {
       ["100%", "human-reviewed profiles"]
     ],
     miniProfiles: [
-      { name: "Alex", city: "Bangkok", activity: "Coffee", image: "" },
-      { name: "Nami", city: "Singapore", activity: "Dinner", image: "" },
-      { name: "Mika", city: "Tokyo", activity: "Movie", image: "" }
+      { name: "Alex", city: "Bangkok", activity: "Coffee", image: "assets/avatar-alex.png" },
+      { name: "Nami", city: "Singapore", activity: "Dinner", image: "assets/avatar-nami.png" },
+      { name: "Mika", city: "Tokyo", activity: "Movie", image: "assets/avatar-mika.png" }
     ],
     trust: ["4.9 average rating", "20,000+ verified members", "Every profile human-reviewed"]
   },

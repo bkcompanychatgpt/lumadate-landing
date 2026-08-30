@@ -797,7 +797,10 @@ blockquote {
 
 .profile-photo {
   aspect-ratio: 4 / 5;
-  background-size: cover;
+  background-color: #f5f0ea;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .photo-a {
@@ -810,6 +813,13 @@ blockquote {
 
 .photo-c {
   background: linear-gradient(160deg, #f2d47d, #df6455);
+}
+
+.profile-photo[style] {
+  background-color: #f5f0ea;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .profile-card h3,

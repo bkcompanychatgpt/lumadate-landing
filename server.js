@@ -104,9 +104,10 @@ function serveStatic(pathname, response) {
   }
 
   const type = mimeTypes[extname(filePath).toLowerCase()] || "application/octet-stream";
+  const noStore = type.startsWith("text/html") || type.includes("javascript") || type.startsWith("text/css");
   response.writeHead(200, {
     "Content-Type": type,
-    "Cache-Control": type.startsWith("text/html") ? "no-store" : "public, max-age=3600"
+    "Cache-Control": noStore ? "no-store" : "public, max-age=3600"
   });
   const stream = createReadStream(filePath);
   stream.on("error", () => {

@@ -26,6 +26,7 @@
   }
 
   function normalizeCms(cms) {
+    const defaultMiniImages = ["assets/avatar-alex.png", "assets/avatar-nami.png", "assets/avatar-mika.png"];
     if (cms.settings?.brandName === "LumaDate") cms.settings.brandName = "lumadate";
     if (cms.nav?.ctaText === "Open app") cms.nav.ctaText = "Register";
     if (cms.finalCta?.primaryText === "Open app") cms.finalCta.primaryText = "Register";
@@ -38,11 +39,15 @@
     }
     if (!Array.isArray(cms.hero?.miniProfiles) || !cms.hero.miniProfiles.length) {
       cms.hero.miniProfiles = [
-        { name: "Alex", city: "Bangkok", activity: "Coffee", image: "" },
-        { name: "Nami", city: "Singapore", activity: "Dinner", image: "" },
-        { name: "Mika", city: "Tokyo", activity: "Movie", image: "" }
+        { name: "Alex", city: "Bangkok", activity: "Coffee", image: defaultMiniImages[0] },
+        { name: "Nami", city: "Singapore", activity: "Dinner", image: defaultMiniImages[1] },
+        { name: "Mika", city: "Tokyo", activity: "Movie", image: defaultMiniImages[2] }
       ];
     }
+    cms.hero.miniProfiles = cms.hero.miniProfiles.map((profile, index) => ({
+      ...profile,
+      image: profile.image || defaultMiniImages[index % defaultMiniImages.length]
+    }));
     return cms;
   }
 
