@@ -2,7 +2,7 @@ services:
   - type: web
     name: lumadate-landing
     env: node
-    plan: starter
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     autoDeploy: true
