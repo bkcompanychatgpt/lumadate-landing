@@ -110,12 +110,12 @@ window.DEFAULT_LANDING_CMS = {
     ]
   },
   conversion: {
-    eyebrow: "Built for paid traffic",
-    headline: "Pixels, client scripts, and campaign data are ready to plug in.",
-    body: "Place a client package in vendor/customer-package.js, or paste tracking snippets into the Pixel zone in index.html. The page records UTM parameters, CTA clicks, lead submissions, matching starts, and matching completions.",
-    formTitle: "Open LumaDate",
-    buttonText: "Submit and see matches",
-    note: "Submission fires a Lead event for ad optimization."
+    eyebrow: "Start today",
+    headline: "Meet verified people who are ready for real plans.",
+    body: "Create your profile request and see compatible members near you. Every profile is reviewed, every match is designed for real-life meetups, and your details stay private until you choose to continue.",
+    formTitle: "Register for matches",
+    buttonText: "Register",
+    note: "Your request helps us prioritize compatible verified profiles."
   },
   trust: {
     eyebrow: "Safe and private",

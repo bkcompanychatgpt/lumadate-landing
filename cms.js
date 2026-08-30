@@ -71,6 +71,14 @@
     if (cms.settings?.brandName === "LumaDate") cms.settings.brandName = "lumadate";
     if (cms.nav?.ctaText === "Open app") cms.nav.ctaText = "Register";
     if (cms.finalCta?.primaryText === "Open app") cms.finalCta.primaryText = "Register";
+    if (cms.conversion?.headline === "Pixels, client scripts, and campaign data are ready to plug in.") {
+      cms.conversion.eyebrow = "Start today";
+      cms.conversion.headline = "Meet verified people who are ready for real plans.";
+      cms.conversion.body = "Create your profile request and see compatible members near you. Every profile is reviewed, every match is designed for real-life meetups, and your details stay private until you choose to continue.";
+      cms.conversion.formTitle = "Register for matches";
+      cms.conversion.buttonText = "Register";
+      cms.conversion.note = "Your request helps us prioritize compatible verified profiles.";
+    }
     if (!Array.isArray(cms.hero?.highlights) || !cms.hero.highlights.length) {
       cms.hero.highlights = [
         ["4.9", "average member rating"],
@@ -229,7 +237,7 @@
 
     setText(".conversion-copy .eyebrow", cms.conversion.eyebrow);
     setText(".conversion-copy h2", cms.conversion.headline);
-    setText(".conversion-copy p", cms.conversion.body);
+    setText(".conversion-copy .conversion-body", cms.conversion.body);
     setText(".lead-form h3", cms.conversion.formTitle);
     setText(".lead-form button", cms.conversion.buttonText);
     setText(".form-note", cms.conversion.note);
