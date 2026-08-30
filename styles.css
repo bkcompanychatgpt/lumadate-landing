@@ -451,12 +451,12 @@ select {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 10 13;
-  marker-end: url("#guide-arrow-head");
   vector-effect: non-scaling-stroke;
 }
 
-.guide-arrow marker path {
+.guide-arrow-head {
   fill: #1f76ff;
+  stroke: none;
 }
 
 .guide-arrow strong {
