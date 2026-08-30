@@ -13,7 +13,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/profile-wall.png" />
     <link rel="preload" as="image" href="assets/profile-wall.png" />
-    <link rel="stylesheet" href="styles.css?v=20260830-guide-reference-2" />
+    <link rel="stylesheet" href="styles.css?v=20260830-crisp-arrow" />
 
     <!-- Pixel / tracking install zone: paste Meta Pixel, TikTok Pixel, Google Tag, affiliate scripts, or client package snippets here. -->
     <script>
@@ -53,7 +53,17 @@
                 <p class="active"><span></span>Open in browser</p>
               </div>
             </div>
-            <div class="guide-arrow"><strong>Tap here</strong></div>
+            <div class="guide-arrow" aria-hidden="true">
+              <svg viewBox="0 0 150 280" focusable="false">
+                <defs>
+                  <marker id="guide-arrow-head" markerWidth="18" markerHeight="18" refX="3" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+                    <path d="M 18 0 L 0 9 L 18 18 Z"></path>
+                  </marker>
+                </defs>
+                <path class="guide-arrow-path" d="M 122 258 C 150 205 151 109 93 70 C 75 58 55 56 34 58"></path>
+              </svg>
+              <strong>Tap here</strong>
+            </div>
           </div>
           <p class="guide-body">Some in-app browsers can block profile loading, registration, and secure matching. Open the link in Safari, Chrome, or your default browser first.</p>
           <div class="guide-steps">
@@ -81,10 +91,10 @@
       </section>
     </main>
 
-    <script src="vendor/customer-package.js?v=20260830-guide-reference-2" defer></script>
-    <script src="vendor/package-loader.js?v=20260830-guide-reference-2" defer></script>
-    <script src="site-config.js?v=20260830-guide-reference-2" defer></script>
-    <script src="cms.js?v=20260830-guide-reference-2" defer></script>
-    <script src="script.js?v=20260830-guide-reference-2" defer></script>
+    <script src="vendor/customer-package.js?v=20260830-crisp-arrow" defer></script>
+    <script src="vendor/package-loader.js?v=20260830-crisp-arrow" defer></script>
+    <script src="site-config.js?v=20260830-crisp-arrow" defer></script>
+    <script src="cms.js?v=20260830-crisp-arrow" defer></script>
+    <script src="script.js?v=20260830-crisp-arrow" defer></script>
   </body>
 </html>
