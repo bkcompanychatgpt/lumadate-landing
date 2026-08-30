@@ -431,10 +431,15 @@
     bindPanel();
   }
 
-  document.querySelector("#save-btn").addEventListener("click", () => {
+  document.querySelector("#save-btn").addEventListener("click", async () => {
     syncPanel();
-    window.saveLandingCms(config);
-    showToast("Saved. Refresh the landing page to see changes.");
+    try {
+      await (window.persistLandingCms ? window.persistLandingCms(config) : Promise.resolve(window.saveLandingCms(config)));
+      showToast("Saved to server. Refresh mobile and desktop to see changes.");
+    } catch {
+      window.saveLandingCms(config);
+      showToast("Saved in this browser only. Server save failed.");
+    }
   });
 
   document.querySelector("#preview-btn").addEventListener("click", () => {
@@ -458,15 +463,17 @@
     const file = event.target.files[0];
     if (!file) return;
     config = JSON.parse(await file.text());
-    window.saveLandingCms(config);
+    if (window.persistLandingCms) await window.persistLandingCms(config);
+    else window.saveLandingCms(config);
     render();
     showToast("Imported and saved.");
   });
 
-  document.querySelector("#reset-btn").addEventListener("click", () => {
+  document.querySelector("#reset-btn").addEventListener("click", async () => {
     if (!confirm("Reset all admin changes to default?")) return;
     localStorage.removeItem(window.LANDING_CMS_STORAGE_KEY);
     config = clone(window.DEFAULT_LANDING_CMS);
+    if (window.persistLandingCms) await window.persistLandingCms(config);
     render();
     showToast("Reset complete.");
   });
@@ -493,4 +500,10 @@
   }, { passive: false });
 
   render();
+  if (!localStorage.getItem(window.LANDING_CMS_STORAGE_KEY) && window.loadLandingCms) {
+    window.loadLandingCms({ includeLocal: false }).then((serverConfig) => {
+      config = serverConfig;
+      render();
+    });
+  }
 })();

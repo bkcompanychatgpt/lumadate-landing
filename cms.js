@@ -52,6 +52,20 @@
     }
   }
 
+  async function loadCms(options = {}) {
+    const fallback = clone(window.DEFAULT_LANDING_CMS || {});
+    const serverConfig = await fetchServerCms();
+    let localConfig = {};
+    if (options.includeLocal !== false) {
+      try {
+        localConfig = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch {
+        localConfig = {};
+      }
+    }
+    return normalizeCms(merge(merge(fallback, serverConfig || {}), localConfig || {}));
+  }
+
   function normalizeCms(cms) {
     const defaultMiniImages = ["assets/avatar-alex.png", "assets/avatar-nami.png", "assets/avatar-mika.png"];
     if (cms.settings?.brandName === "LumaDate") cms.settings.brandName = "lumadate";
@@ -75,11 +89,36 @@
       ...profile,
       image: profile.image || defaultMiniImages[index % defaultMiniImages.length]
     }));
+    cms.profiles = (cms.profiles || []).map((profile, index) => ({
+      ...profile,
+      image: profile.image || defaultMiniImages[index % defaultMiniImages.length]
+    }));
     return cms;
   }
 
   function saveCms(config) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+  }
+
+  async function saveServerCms(config) {
+    saveCms(config);
+    const response = await fetch("/api/config", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ config })
+    });
+    if (!response.ok) throw new Error("Server config save failed");
+  }
+
+  async function fetchServerCms() {
+    try {
+      const response = await fetch("/api/config", { cache: "no-store" });
+      if (!response.ok) return null;
+      const payload = await response.json();
+      return payload.config || null;
+    } catch {
+      return null;
+    }
   }
 
   function esc(value) {
@@ -113,8 +152,8 @@
       .join("");
   }
 
-  function applyCms() {
-    const cms = getCms();
+  async function applyCms() {
+    const cms = await loadCms({ includeLocal: false });
     window.LANDING_CMS = cms;
     loadTracking(cms.tracking || {});
     injectSnippet("cms-custom-head", cms.tracking?.customHeadScript, document.head);
@@ -260,7 +299,9 @@
 
   window.LANDING_CMS_STORAGE_KEY = STORAGE_KEY;
   window.getLandingCms = getCms;
+  window.loadLandingCms = loadCms;
   window.saveLandingCms = saveCms;
+  window.persistLandingCms = saveServerCms;
   window.applyLandingCms = applyCms;
   document.addEventListener("DOMContentLoaded", () => {
     if (!document.querySelector(".admin-main")) applyCms();

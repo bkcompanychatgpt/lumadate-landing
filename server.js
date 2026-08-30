@@ -1,9 +1,11 @@
 import { createReadStream, existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { extname, join, normalize, resolve } from "node:path";
 import { createServer } from "node:http";
 
 const root = resolve(".");
 const port = Number(process.env.PORT || 10000);
+const configPath = resolve("data", "site-config.json");
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -49,6 +51,11 @@ createServer(async (request, response) => {
       return;
     }
 
+    if (url.pathname === "/api/config") {
+      await handleConfig(request, response);
+      return;
+    }
+
     serveStatic(url.pathname, response);
   } catch (error) {
     sendJson(response, 500, { ok: false, error: error.message });
@@ -91,6 +98,33 @@ async function handleTrack(request, response) {
         : { ok: false, error: result.reason?.message || String(result.reason) }
     ))
   });
+}
+
+async function handleConfig(request, response) {
+  if (request.method === "GET") {
+    try {
+      const content = await readFile(configPath, "utf8");
+      sendJson(response, 200, { ok: true, config: JSON.parse(content) });
+    } catch {
+      sendJson(response, 200, { ok: true, config: null });
+    }
+    return;
+  }
+
+  if (request.method !== "POST") {
+    sendJson(response, 405, { ok: false, error: "Method not allowed" });
+    return;
+  }
+
+  const input = await readJson(request);
+  if (!input || typeof input !== "object") {
+    sendJson(response, 400, { ok: false, error: "Invalid JSON" });
+    return;
+  }
+
+  await mkdir(resolve("data"), { recursive: true });
+  await writeFile(configPath, JSON.stringify(input.config || input, null, 2));
+  sendJson(response, 200, { ok: true });
 }
 
 function serveStatic(pathname, response) {

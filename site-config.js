@@ -90,9 +90,9 @@ window.DEFAULT_LANDING_CMS = {
     checks: ["Human-reviewed profiles", "Real identity signals", "Private booking history", "Public-first meetup guidance"]
   },
   profiles: [
-    { name: "Alena, 26", city: "Kuala Lumpur", activity: "Coffee date", badge: "Verified", image: "" },
-    { name: "Audrey, 21", city: "Bangkok", activity: "City walk", badge: "Available", image: "" },
-    { name: "Nami, 22", city: "Singapore", activity: "Dinner", badge: "Reviewed", image: "" }
+    { name: "Alena, 26", city: "Kuala Lumpur", activity: "Coffee date", badge: "Verified", image: "assets/avatar-alex.png" },
+    { name: "Audrey, 21", city: "Bangkok", activity: "City walk", badge: "Available", image: "assets/avatar-nami.png" },
+    { name: "Nami, 22", city: "Singapore", activity: "Dinner", badge: "Reviewed", image: "assets/avatar-mika.png" }
   ],
   proof: {
     eyebrow: "Stop wasting time",
