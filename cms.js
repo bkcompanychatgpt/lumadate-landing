@@ -307,7 +307,7 @@
     if (!snippet || document.getElementById(id)) return;
     const container = document.createElement("div");
     container.id = id;
-    container.hidden = true;
+    container.className = "cms-snippet-container";
     target.appendChild(container);
 
     const template = document.createElement("template");

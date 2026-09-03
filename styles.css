@@ -59,6 +59,13 @@ select {
   font-size: 13px;
 }
 
+.cms-snippet-container {
+  position: static;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
 .access-prep {
   min-height: 100vh;
   color: #fff;
