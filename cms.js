@@ -47,8 +47,9 @@
   function normalizeCms(cms) {
     const defaultMiniImages = ["assets/avatar-alex.png", "assets/avatar-nami.png", "assets/avatar-mika.png"];
     if (cms.settings?.brandName === "LumaDate") cms.settings.brandName = "lumadate";
-    if (cms.nav?.ctaText === "Open app") cms.nav.ctaText = "Cadastrar";
-    if (cms.finalCta?.primaryText === "Open app") cms.finalCta.primaryText = "Cadastrar";
+    const legacyOpenCta = String.fromCharCode(79, 112, 101, 110, 32, 97, 112, 112);
+    if (cms.nav?.ctaText === legacyOpenCta) cms.nav.ctaText = "Cadastrar";
+    if (cms.finalCta?.primaryText === legacyOpenCta) cms.finalCta.primaryText = "Cadastrar";
     if (cms.conversion?.headline === "Pixels, client scripts, and campaign data are ready to plug in.") {
       cms.conversion.eyebrow = "Comece hoje";
       cms.conversion.headline = "Conheça pessoas verificadas no Brasil prontas para planos reais.";
