@@ -3,8 +3,8 @@
 This is a static landing page package for paid traffic and client delivery. It includes:
 
 - Minimal click-to-match gate
-- 10-second full-page matching countdown
-- Hard redirect to `app.html` after matching
+- Full-page match waiting state without a visible countdown
+- Hard redirect to `app.html` after the matching state completes
 - Admin dashboard for editing copy, images, links, tracking, and campaign data
 - Full English conversion landing page
 - UTM capture
@@ -18,7 +18,7 @@ This is a static landing page package for paid traffic and client delivery. It i
 - `index.html`: page structure, SEO, and pixel install zone
 - `landing.html`: the full landing page visitors see after the countdown, served publicly as `app.html` on Render
 - `styles.css`: visual design and responsive layout
-- `script.js`: matching countdown, routing, lead form, and tracking events
+- `script.js`: matching state, routing, lead form, and tracking events
 - `admin.html`: local admin dashboard
 - `admin.js`: admin form logic, import/export, image uploads
 - `cms.js`: reads saved admin settings and renders the landing page
