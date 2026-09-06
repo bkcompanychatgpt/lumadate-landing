@@ -187,7 +187,7 @@
   document.addEventListener("click", (event) => {
     const cta = event.target.closest("a, button");
     if (!cta) return;
-    const label = cta.textContent.trim().replace(/\s+/g, " " );
+    const label = cta.textContent.trim().replace(/\s+/g, " ");
     track("CtaClick", { label, href: cta.getAttribute("href") || "" });
   });
 

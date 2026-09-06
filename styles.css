@@ -517,6 +517,23 @@ select {
   font-weight: 900;
 }
 
+.guide-primary-btn.copied {
+  background: linear-gradient(135deg, #138a7f, #29b59f);
+  box-shadow: 0 18px 40px rgba(19, 138, 127, 0.24);
+}
+
+.guide-copy-note {
+  margin: 14px 0 0;
+  padding: 14px 16px;
+  border: 1px solid #eadcf2;
+  border-radius: 16px;
+  color: #3a2755;
+  background: #fbf6ff;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
 .guide-copy::after {
   display: none;
 }
