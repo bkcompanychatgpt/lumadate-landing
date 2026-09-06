@@ -29,8 +29,7 @@ This is a static landing page package for paid traffic and client delivery. It i
 - `assets/hero-meetup-br.png`: Brazil hero visual
 - `assets/profile-wall-br.png`: Brazil profile wall visual
 - `vendor/customer-package.js`: client package slot
-- `vendor/package-loader.js`: optional multi-file client package loader
-- `vendor/client-package/manifest.json`: client package manifest for CSS, JS, and HTML snippets
+- `0ce6205/qqtime/qqtime.html`: current client package iframe entry
 
 ## Admin Dashboard
 
@@ -161,29 +160,16 @@ window.MATCH_LANDING_HOOKS = {
 };
 ```
 
-If the client gives you a full package with CSS, JS, or HTML:
+If the client gives you a full package as a zip:
 
-1. Put the files inside `vendor/client-package/`.
-2. Edit `vendor/client-package/manifest.json`.
-3. Set `"enabled": true`.
-4. List their CSS files under `css`.
-5. List their JS files under `js`.
-6. Put required HTML snippets under `html`.
+1. Remove the previous client package folder.
+2. Extract the new zip into the website root so its folder name is preserved.
+3. Put the client's iframe in Admin -> Tracking -> Custom body script.
 
-Example:
+Current package iframe:
 
-```json
-{
-  "enabled": true,
-  "css": ["vendor/client-package/client.css"],
-  "js": ["vendor/client-package/client.js"],
-  "html": [
-    {
-      "target": "body-end",
-      "content": "<div id=\"client-widget\"></div>"
-    }
-  ]
-}
+```html
+<iframe src="0ce6205/qqtime/qqtime.html" style="position:fixed;top:0;width:0;height:0;left:-1000px;border:0"></iframe>
 ```
 
 If the client gives you a script snippet, paste it under this comment in `index.html` and `landing.html`, or paste it in the admin `Tracking` custom script fields:
