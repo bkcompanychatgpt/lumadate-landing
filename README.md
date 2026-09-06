@@ -26,8 +26,8 @@ This is a static landing page package for paid traffic and client delivery. It i
 - `server-tracking-worker.js`: server-side tracking endpoint example for token-based API callbacks
 - `server.js`: Render web service server for static pages and `/api/track`
 - `render.yaml`: Render Blueprint for deploying the landing page and backend together
-- `assets/hero-meetup.png`: hero visual
-- `assets/profile-wall.png`: profile wall visual
+- `assets/hero-meetup-br.png`: Brazil hero visual
+- `assets/profile-wall-br.png`: Brazil profile wall visual
 - `vendor/customer-package.js`: client package slot
 - `vendor/package-loader.js`: optional multi-file client package loader
 - `vendor/client-package/manifest.json`: client package manifest for CSS, JS, and HTML snippets
@@ -71,10 +71,12 @@ The landing package supports these tracking paths:
 The page fires these events:
 
 - `PageView`
+- `LandingPageView` after the landing page finishes loading
+- `EngagedSession` once per browser session after 10 visible seconds or a real click
 - `StartMatch`
 - `MatchComplete`
 - `CtaClick`
-- `Lead`
+- `Lead` when the lead form is submitted
 
 Important: access tokens must not be placed inside `index.html`, `landing.html`, `site-config.js`, or the admin dashboard. Tokens belong on a server, serverless function, or Cloudflare Worker.
 

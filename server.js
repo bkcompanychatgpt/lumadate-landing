@@ -31,6 +31,8 @@ const metaEventMap = {
 
 const tiktokEventMap = {
   PageView: "ViewContent",
+  LandingPageView: "LandingPageView",
+  EngagedSession: "EngagedSession",
   StartMatch: "ClickButton",
   MatchComplete: "CompleteRegistration",
   CtaClick: "ClickButton",

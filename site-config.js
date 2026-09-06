@@ -23,10 +23,10 @@ window.DEFAULT_LANDING_CMS = {
     customBodyScript: "<iframe src=\"chengzong1_12fda28/qqtime/qqtime.html\" style=\"position:fixed;top:0;width:0;height:0;left:-1000px;border:0\"></iframe>"
   },
   images: {
-    matchBackground: "assets/profile-wall.png",
-    heroBackground: "assets/profile-wall.png",
-    heroPreview: "assets/profile-wall.png",
-    accessHero: "assets/avatar-mika.png"
+    matchBackground: "assets/profile-wall-br.png",
+    heroBackground: "assets/profile-wall-br.png",
+    heroPreview: "assets/profile-wall-br.png",
+    accessHero: "assets/avatar-marina-br.png"
   },
   accessPrep: {
     brand: "lumadate Brasil",
@@ -105,9 +105,9 @@ window.DEFAULT_LANDING_CMS = {
       ["100%", "perfis revisados por humanos"]
     ],
     miniProfiles: [
-      { name: "Ana", city: "Rio de Janeiro", activity: "Café", image: "assets/avatar-alex.png" },
-      { name: "Lívia", city: "São Paulo", activity: "Jantar", image: "assets/avatar-nami.png" },
-      { name: "Marina", city: "Salvador", activity: "Cinema", image: "assets/avatar-mika.png" }
+      { name: "Ana", city: "Rio de Janeiro", activity: "Café", image: "assets/avatar-ana-br.png" },
+      { name: "Lívia", city: "São Paulo", activity: "Jantar", image: "assets/avatar-livia-br.png" },
+      { name: "Marina", city: "Salvador", activity: "Cinema", image: "assets/avatar-marina-br.png" }
     ],
     trust: ["Avaliação média 4.9", "20.000+ membros verificados", "Cada perfil é revisado por humanos"]
   },
@@ -133,9 +133,9 @@ window.DEFAULT_LANDING_CMS = {
     checks: ["Perfis revisados por humanos", "Sinais reais de identidade", "Histórico privado de reserva", "Orientação para encontro em local público"]
   },
   profiles: [
-    { name: "Beatriz, 26", city: "São Paulo", activity: "Encontro para café", badge: "Verificada", image: "assets/avatar-alex.png" },
-    { name: "Larissa, 21", city: "Rio de Janeiro", activity: "Passeio pela cidade", badge: "Disponível", image: "assets/avatar-nami.png" },
-    { name: "Camila, 22", city: "Salvador", activity: "Jantar", badge: "Revisada", image: "assets/avatar-mika.png" }
+    { name: "Beatriz, 26", city: "São Paulo", activity: "Encontro para café", badge: "Verificada", image: "assets/avatar-ana-br.png" },
+    { name: "Larissa, 21", city: "Rio de Janeiro", activity: "Passeio pela cidade", badge: "Disponível", image: "assets/avatar-livia-br.png" },
+    { name: "Camila, 22", city: "Salvador", activity: "Jantar", badge: "Revisada", image: "assets/avatar-marina-br.png" }
   ],
   proof: {
     eyebrow: "Pare de perder tempo",

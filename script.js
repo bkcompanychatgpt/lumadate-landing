@@ -22,6 +22,17 @@
   const leadForm = document.querySelector("#lead-form");
   const toast = document.querySelector("#toast");
   const trackingConfig = cmsConfig.tracking || {};
+  const pendingTikTokEvents = [];
+  let tiktokTrackingReady = false;
+  let landingPageLoaded = document.readyState === "complete";
+  let landingPageViewSent = false;
+  let engagedSessionSent = false;
+
+  try {
+    engagedSessionSent = sessionStorage.getItem("landing-engaged-session-sent") === "1";
+  } catch {
+    engagedSessionSent = false;
+  }
 
   const states = cmsConfig.matchGate?.states || [
     ["Verificando a conexão", "Sua fila de matches está sendo conectada com segurança. Permaneça nesta página."],
@@ -43,7 +54,11 @@
     window.dataLayer.push(data);
 
     if (typeof window.fbq === "function") window.fbq("trackCustom", eventName, data);
-    if (typeof window.ttq?.track === "function") window.ttq.track(eventName, data);
+    if (typeof window.ttq?.track === "function") {
+      window.ttq.track(eventName, data);
+    } else if (eventName !== "PageView") {
+      pendingTikTokEvents.push([eventName, data]);
+    }
     if (typeof window.gtag === "function") window.gtag("event", eventName, data);
     if (typeof window.MATCH_LANDING_HOOKS?.onTrack === "function") {
       window.MATCH_LANDING_HOOKS.onTrack(eventName, data);
@@ -52,6 +67,53 @@
     sendServerEvent(eventName, data);
     console.info("[landing-track]", eventName, data);
   };
+
+  function flushTikTokEvents() {
+    if (typeof window.ttq?.track !== "function") return;
+    while (pendingTikTokEvents.length) {
+      const [eventName, data] = pendingTikTokEvents.shift();
+      window.ttq.track(eventName, data);
+    }
+  }
+
+  function sendLandingPageView() {
+    if (!tiktokTrackingReady || !landingPageLoaded || landingPageViewSent) return;
+    landingPageViewSent = true;
+    track("LandingPageView", { page_type: "landing_page" });
+  }
+
+  function markEngagedSession(reason) {
+    if (engagedSessionSent) return;
+    engagedSessionSent = true;
+    try {
+      sessionStorage.setItem("landing-engaged-session-sent", "1");
+    } catch {
+      // Tracking still works when sessionStorage is unavailable.
+    }
+    track("EngagedSession", { engagement_reason: reason });
+  }
+
+  document.addEventListener("landing:tracking-ready", () => {
+    tiktokTrackingReady = true;
+    flushTikTokEvents();
+    sendLandingPageView();
+  });
+
+  if (!landingPageLoaded) {
+    window.addEventListener("load", () => {
+      landingPageLoaded = true;
+      sendLandingPageView();
+    }, { once: true });
+  }
+
+  let visibleSeconds = 0;
+  const engagementTimer = window.setInterval(() => {
+    if (document.visibilityState === "visible") visibleSeconds += 1;
+    if (visibleSeconds >= 10 || engagedSessionSent) {
+      window.clearInterval(engagementTimer);
+      if (visibleSeconds >= 10) markEngagedSession("10_seconds_visible");
+    }
+  }, 1000);
 
   const showToast = (message) => {
     if (!toast) return;
@@ -189,6 +251,7 @@
     if (!cta) return;
     const label = cta.textContent.trim().replace(/\s+/g, " ");
     track("CtaClick", { label, href: cta.getAttribute("href") || "" });
+    markEngagedSession("click");
   });
 
   startButton?.addEventListener("click", startMatchingDelay);
@@ -225,6 +288,7 @@
   leadForm?.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(leadForm);
+    markEngagedSession("form_submit");
     track("Lead", {
       country: formData.get("country"),
       hasName: Boolean(formData.get("name")),

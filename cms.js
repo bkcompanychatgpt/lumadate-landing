@@ -45,7 +45,7 @@
   }
 
   function normalizeCms(cms) {
-    const defaultMiniImages = ["assets/avatar-alex.png", "assets/avatar-nami.png", "assets/avatar-mika.png"];
+    const defaultMiniImages = ["assets/avatar-ana-br.png", "assets/avatar-livia-br.png", "assets/avatar-marina-br.png"];
     if (cms.settings?.brandName === "LumaDate") cms.settings.brandName = "lumadate";
     const legacyOpenCta = String.fromCharCode(79, 112, 101, 110, 32, 97, 112, 112);
     if (cms.nav?.ctaText === legacyOpenCta) cms.nav.ctaText = "Cadastrar";
@@ -143,6 +143,9 @@
     const cms = await loadCms({ includeLocal: false });
     window.LANDING_CMS = cms;
     loadTracking(cms.tracking || {});
+    document.dispatchEvent(new CustomEvent("landing:tracking-ready", {
+      detail: { tracking: cms.tracking || {} }
+    }));
     injectSnippet("cms-custom-head", cms.tracking?.customHeadScript, document.head);
     injectSnippet("cms-custom-body", cms.tracking?.customBodyScript, document.body);
 
@@ -315,7 +318,7 @@
     }
 
     if (tracking.tiktokPixelId) {
-      addScript("cms-tiktok-pixel", "", `!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=['page','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie'];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.load=function(e){var i='https://analytics.tiktok.com/i18n/pixel/events.js';ttq._i=ttq._i||{};ttq._i[e]=[];ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]={};var n=d.createElement('script');n.type='text/javascript';n.async=!0;n.src=i+'?sdkid='+e+'&lib='+t;var a=d.getElementsByTagName('script')[0];a.parentNode.insertBefore(n,a)};ttq.load('${String(tracking.tiktokPixelId).replace(/'/g, "")}');ttq.page();}(window,document,'ttq');`);
+      addScript("cms-tiktok-pixel", "", `!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=['page','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie','holdConsent','revokeConsent','grantConsent'];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var r='https://analytics.tiktok.com/i18n/pixel/events.js',o=n&&n.partner;ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};n=d.createElement('script');n.type='text/javascript';n.async=!0;n.src=r+'?sdkid='+e+'&lib='+t;e=d.getElementsByTagName('script')[0];e.parentNode.insertBefore(n,e)};ttq.load('${String(tracking.tiktokPixelId).replace(/'/g, "")}');ttq.page();}(window,document,'ttq');`);
     }
   }
 

@@ -23,6 +23,8 @@ const META_EVENT_MAP = {
 
 const TIKTOK_EVENT_MAP = {
   PageView: "ViewContent",
+  LandingPageView: "LandingPageView",
+  EngagedSession: "EngagedSession",
   StartMatch: "ClickButton",
   MatchComplete: "CompleteRegistration",
   CtaClick: "ClickButton",
