@@ -12,6 +12,7 @@
   const browserGuide = document.querySelector("#browser-guide");
   const continueToGuide = document.querySelector("#continue-to-guide");
   const continueToMatch = document.querySelector("#continue-to-match");
+  const copyOpenNote = document.querySelector("#copy-open-note");
   const landing = document.querySelector("#landing");
   const startButton = document.querySelector("#start-match");
   const countdownStage = document.querySelector("#countdown-stage");
@@ -23,10 +24,10 @@
   const trackingConfig = cmsConfig.tracking || {};
 
   const states = cmsConfig.matchGate?.states || [
-    ["Memeriksa isyarat rangkaian", "Barisan padanan anda sedang disambungkan dengan selamat. Sila kekal di halaman ini."],
-    ["Memuatkan profil disahkan", "Profil sebenar dan pilihan aktiviti sedang dimuatkan dari kawasan terdekat."],
-    ["Memulihkan sambungan", "Hampir selesai. Keputusan padanan anda sedang disediakan di latar belakang."],
-    ["Membuka keputusan padanan", "Sambungan dipulihkan. Anda akan dihantar ke halaman temu janji peribadi sekarang."]
+    ["Verificando a conexão", "Sua fila de matches está sendo conectada com segurança. Permaneça nesta página."],
+    ["Carregando perfis verificados", "Perfis reais e opções de encontro no Brasil estão sendo preparados."],
+    ["Restaurando acesso", "Quase pronto. Seus resultados estão sendo preparados em segundo plano."],
+    ["Abrindo seus matches", "A conexão foi restaurada. Você será enviado para a página de encontros agora."]
   ];
 
   const track = (eventName, payload = {}) => {
@@ -103,6 +104,40 @@
     }).catch((error) => console.warn("[server-track-error]", error));
   }
 
+  function getBrowserOpenUrl() {
+    return cmsConfig.browserGuide?.copyUrl || "https://lumadate.com/?step=match";
+  }
+
+  async function copyText(text) {
+    try {
+      if (navigator.clipboard?.writeText && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (error) {
+      console.warn("[clipboard-api-error]", error);
+    }
+
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    textarea.style.top = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    textarea.setSelectionRange(0, text.length);
+
+    try {
+      return document.execCommand("copy");
+    } catch (error) {
+      console.warn("[clipboard-fallback-error]", error);
+      return false;
+    } finally {
+      textarea.remove();
+    }
+  }
+
   function showLanding() {
     const destination = config.destinationAfterMatch || "#landing";
     if (destination !== "#landing") {
@@ -128,8 +163,8 @@
     startButton.hidden = true;
     countdownStage.hidden = false;
     matchRing.removeAttribute("style");
-    matchStatus.textContent = cmsConfig.matchGate?.title || "Menyambung semula rangkaian padanan";
-    matchDetail.textContent = cmsConfig.matchGate?.detail || "Sambungan sedang dipulihkan sementara profil disahkan dimuatkan. Sila tunggu...";
+    matchStatus.textContent = cmsConfig.matchGate?.title || "Reconectando a rede de matches";
+    matchDetail.textContent = cmsConfig.matchGate?.detail || "A conexão está sendo restaurada enquanto perfis verificados são carregados. Aguarde...";
     track("StartMatch", { seconds: total });
 
     let stateIndex = 0;
@@ -152,7 +187,7 @@
   document.addEventListener("click", (event) => {
     const cta = event.target.closest("a, button");
     if (!cta) return;
-    const label = cta.textContent.trim().replace(/\s+/g, " ");
+    const label = cta.textContent.trim().replace(/\s+/g, " " );
     track("CtaClick", { label, href: cta.getAttribute("href") || "" });
   });
 
@@ -169,11 +204,22 @@
     track("AccessPrepContinue", {});
   });
 
-  continueToMatch?.addEventListener("click", () => {
-    if (browserGuide) browserGuide.hidden = true;
-    if (matchGate) matchGate.hidden = false;
-    document.body.classList.remove("guide-ready");
-    track("BrowserGuideContinue", {});
+  continueToMatch?.addEventListener("click", async () => {
+    const url = getBrowserOpenUrl();
+    const copied = await copyText(url);
+    const successMessage = cmsConfig.browserGuide?.copySuccess || "O link do match foi copiado. Abra o Safari, Chrome ou seu navegador principal e cole este link para continuar.";
+    const fallbackMessage = `Copie este link e cole no Safari, Chrome ou no seu navegador principal: ${url}`;
+
+    continueToMatch.classList.add("copied");
+    continueToMatch.textContent = copied ? "Link copiado" : "Copiar este link";
+
+    if (copyOpenNote) {
+      copyOpenNote.hidden = false;
+      copyOpenNote.textContent = copied ? successMessage : fallbackMessage;
+    }
+
+    showToast(copied ? "Link do match copiado." : "Copie o link manualmente.");
+    track("BrowserGuideCopyLink", { copied, url });
   });
 
   leadForm?.addEventListener("submit", (event) => {
@@ -185,10 +231,18 @@
       hasPhone: Boolean(formData.get("phone"))
     });
     leadForm.reset();
-    showToast("Dihantar. Padanan tersedia anda akan diberi keutamaan.");
+    showToast("Enviado. Seus matches disponíveis terão prioridade.");
   });
 
-  if (window.location.hash === "#landing") {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("step") === "match") {
+    if (accessPrep) accessPrep.hidden = true;
+    if (browserGuide) browserGuide.hidden = true;
+    if (matchGate) matchGate.hidden = false;
+    document.body.classList.remove("prep-ready", "guide-ready", "landing-ready");
+    window.scrollTo(0, 0);
+    track("MatchLinkOpen", {});
+  } else if (window.location.hash === "#landing") {
     document.body.classList.add("landing-ready");
     if (matchGate) matchGate.hidden = true;
     if (landing) landing.hidden = false;
