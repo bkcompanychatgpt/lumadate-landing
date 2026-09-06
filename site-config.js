@@ -2,8 +2,8 @@ window.DEFAULT_LANDING_CMS = {
   settings: {
     brandName: "lumadate",
     brandInitial: "L",
-    title: "lumadate - Temu Janji Sebenar Yang Disahkan",
-    description: "Cari temu janji sebenar dan aktiviti sosial dengan profil yang disemak, pendaftaran pantas, privasi, dan penjejakan kempen penuh.",
+    title: "lumadate - Encontros reais verificados no Brasil",
+    description: "Encontre encontros reais e atividades sociais no Brasil com perfis revisados, cadastro rápido, privacidade e rastreamento completo de campanhas.",
     postMatchDestination: "app.html",
     countdownSeconds: 10,
     appStoreUrl: "#lead-form",
@@ -20,7 +20,7 @@ window.DEFAULT_LANDING_CMS = {
     metaTestEventCode: "",
     tiktokTestEventCode: "",
     customHeadScript: "",
-    customBodyScript: "<iframe src=\"chengzong1_12fda28/qqtime/qqtime.html\" style=\"position:fixed;top:0;width:0;height:0;left:-1000px;border:0\"></iframe>"
+    customBodyScript: '<iframe src="chengzong1_12fda28/qqtime/qqtime.html" style="position:fixed;top:0;width:0;height:0;left:-1000px;border:0"></iframe>',
   },
   images: {
     matchBackground: "assets/profile-wall.png",
@@ -29,169 +29,171 @@ window.DEFAULT_LANDING_CMS = {
     accessHero: "assets/avatar-mika.png"
   },
   accessPrep: {
-    brand: "lumadate MY",
-    status: "Sedang menyediakan akses",
-    title: "Akses percuma sedang disediakan",
-    body: "Kekal di halaman ini sebentar sementara kami memuatkan profil berdekatan yang sesuai untuk anda.",
-    waitText: "Anggaran masa menunggu: 0s",
-    queueTitle: "Profil sedang menunggu",
-    queueNote: "Akses anda hampir selesai",
-    panelBadge: "• Padanan MY",
-    panelStatus: "Sedia",
-    panelTitle: "Membuka temu janji tempatan",
-    panelBody: "Kami sedang menyusun orang berdekatan, memeriksa isyarat profil, dan menyediakan akses selamat sebelum padanan diteruskan.",
-    progressStart: "Sedia",
-    progressEnd: "Dibuka",
+    brand: "lumadate Brasil",
+    status: "Preparando acesso",
+    title: "Seu acesso gratuito está sendo preparado",
+    body: "Permaneça nesta página por alguns instantes enquanto carregamos perfis brasileiros próximos de você.",
+    waitText: "Tempo estimado de espera: 0s",
+    queueTitle: "Perfis na fila",
+    queueNote: "Seu acesso está quase pronto",
+    panelBadge: "• Matches BR",
+    panelStatus: "Pronto",
+    panelTitle: "Abrindo encontros locais no Brasil",
+    panelBody: "Estamos organizando pessoas próximas, verificando sinais de perfil e preparando acesso seguro antes de liberar o próximo passo.",
+    progressStart: "Pronto",
+    progressEnd: "Aberto",
     steps: [
-      ["1", "Cari orang berdekatan", "Profil tempatan disusun mengikut kawasan anda."],
-      ["2", "Buka apabila sudah sedia", "Teruskan sebaik sahaja akses padanan tersedia."],
-      ["3", "Pilihan anda", "Anda boleh teruskan hanya jika padanan sesuai."]
+      ["1", "Encontrar pessoas próximas", "Perfis brasileiros são organizados conforme sua região."],
+      ["2", "Abrir quando estiver pronto", "Continue assim que o acesso aos matches estiver disponível."],
+      ["3", "Você escolhe", "Continue apenas se os perfis fizerem sentido para você."]
     ],
-    readyTitle: "Akses percuma telah dibuka",
-    readyBody: "Buka halaman seterusnya apabila anda sudah bersedia.",
-    buttonText: "Teruskan akses percuma",
-    footnote: "Padanan sudah sedia. Sila teruskan di bawah.",
-    faqEyebrow: "Soalan biasa",
+    readyTitle: "Acesso gratuito liberado",
+    readyBody: "Abra a próxima etapa quando estiver pronto.",
+    buttonText: "Continuar acesso gratuito",
+    footnote: "Os matches estão prontos. Continue abaixo.",
+    faqEyebrow: "Dúvidas comuns",
     faq: [
-      ["Mengapa perlu buka halaman seterusnya?", "Sesetengah pelayar dalam aplikasi boleh menghalang gambar profil, pendaftaran, dan proses padanan selamat."],
-      ["Adakah saya perlu memasang aplikasi?", "Tidak. Anda hanya perlu teruskan ke langkah seterusnya untuk membuka halaman dalam pelayar yang lebih stabil."]
+      ["Por que preciso abrir a próxima página?", "Alguns navegadores dentro de aplicativos podem bloquear fotos de perfil, cadastro e o processo seguro de match."],
+      ["Preciso instalar algum aplicativo?", "Não. Você só precisa continuar para abrir o link em um navegador mais estável."]
     ]
   },
   matchGate: {
-    buttonText: "Klik untuk padanan",
-    title: "Menyambung semula rangkaian padanan",
-    detail: "Sambungan sedang dipulihkan sementara profil disahkan dimuatkan. Sila tunggu...",
+    buttonText: "Clique para combinar",
+    title: "Reconectando a rede de matches",
+    detail: "A conexão está sendo restaurada enquanto perfis verificados são carregados. Aguarde...",
     states: [
-      ["Memeriksa isyarat rangkaian", "Barisan padanan anda sedang disambungkan dengan selamat. Sila kekal di halaman ini."],
-      ["Memuatkan profil disahkan", "Profil sebenar dan pilihan aktiviti sedang dimuatkan dari kawasan terdekat."],
-      ["Memulihkan sambungan", "Hampir selesai. Keputusan padanan anda sedang disediakan di latar belakang."],
-      ["Membuka keputusan padanan", "Sambungan dipulihkan. Anda akan dihantar ke halaman temu janji peribadi sekarang."]
+      ["Verificando a conexão", "Sua fila de matches está sendo conectada com segurança. Permaneça nesta página."],
+      ["Carregando perfis verificados", "Perfis reais e opções de encontro no Brasil estão sendo preparados."],
+      ["Restaurando acesso", "Quase pronto. Seus resultados estão sendo preparados em segundo plano."],
+      ["Abrindo seus matches", "A conexão foi restaurada. Você será enviado para a página de encontros agora."]
     ]
   },
   browserGuide: {
-    eyebrow: "Untuk pengalaman terbaik",
-    headline: "Buka halaman ini dalam pelayar sebelum padanan.",
-    body: "Sesetengah pelayar dalam aplikasi boleh menghalang gambar profil, pendaftaran, dan padanan selamat. Buka pautan ini dalam Safari, Chrome, atau pelayar utama anda dahulu.",
+    eyebrow: "Para a melhor experiência",
+    headline: "Abra esta página no seu navegador antes de continuar.",
+    body: "Alguns navegadores dentro de aplicativos podem bloquear fotos de perfil, cadastro e o processo seguro de match. Abra este link no Safari, Chrome ou no navegador principal primeiro.",
     steps: [
-      ["1", "Tekan ikon menu dalam pelayar aplikasi."],
-      ["2", "Pilih Buka dalam pelayar atau Buka dalam Safari."],
-      ["3", "Jika tiada apa berlaku, salin pautan dan tampal dalam pelayar anda."]
+      ["1", "Toque no ícone de menu dentro do navegador do aplicativo."],
+      ["2", "Escolha Abrir no navegador ou Abrir no Safari."],
+      ["3", "Se nada acontecer, copie o link e cole no seu navegador."]
     ],
-    buttonText: "Teruskan ke padanan"
+    buttonText: "Copiar link do match",
+    copyUrl: "https://lumadate.com/?step=match",
+    copySuccess: "O link do match foi copiado. Abra o Safari, Chrome ou seu navegador principal e cole este link para continuar."
   },
   nav: {
     links: [
-      ["Aktiviti", "#activities"],
-      ["Disahkan", "#verified"],
-      ["Cara kerja", "#how"],
-      ["Soalan", "#faq"]
+      ["Atividades", "#activities"],
+      ["Verificados", "#verified"],
+      ["Como funciona", "#how"],
+      ["FAQ", "#faq"]
     ],
-    ctaText: "Daftar",
+    ctaText: "Cadastrar",
     ctaUrl: "#lead-form"
   },
   hero: {
-    eyebrow: "Temu janji bersemuka yang disahkan",
-    headline: "Tempah temu janji dengan profil 100% disemak.",
-    lead: "lumadate menghubungkan anda dengan orang yang identitinya diperiksa untuk temu janji dan aktiviti sebenar. Tiada profil palsu, tiada sembang tanpa henti, tiada teka-teki siapa yang akan hadir.",
-    previewName: "Illy, 25",
-    previewCity: "Kuala Lumpur",
-    previewActivity: "Makan tengah hari, kopi, jalan bandar",
-    previewCta: "Temui dia",
+    eyebrow: "Encontros presenciais verificados no Brasil",
+    headline: "Marque um encontro com perfis 100% revisados.",
+    lead: "lumadate conecta você com pessoas no Brasil que passam por sinais de verificação para encontros e atividades reais. Sem perfis falsos, sem conversa infinita, sem dúvida sobre quem vai aparecer.",
+    previewName: "Isabela, 25",
+    previewCity: "São Paulo",
+    previewActivity: "Almoço, café, passeio na cidade",
+    previewCta: "Conheça ela",
     highlights: [
-      ["4.9", "penilaian purata ahli"],
-      ["20K+", "ahli disahkan"],
-      ["100%", "profil disemak manusia"]
+      ["4.9", "avaliação média dos membros"],
+      ["20K+", "membros verificados"],
+      ["100%", "perfis revisados por humanos"]
     ],
     miniProfiles: [
-      { name: "Alex", city: "Bangkok", activity: "Kopi", image: "assets/avatar-alex.png" },
-      { name: "Nami", city: "Singapore", activity: "Makan malam", image: "assets/avatar-nami.png" },
-      { name: "Mika", city: "Tokyo", activity: "Filem", image: "assets/avatar-mika.png" }
+      { name: "Ana", city: "Rio de Janeiro", activity: "Café", image: "assets/avatar-alex.png" },
+      { name: "Lívia", city: "São Paulo", activity: "Jantar", image: "assets/avatar-nami.png" },
+      { name: "Marina", city: "Salvador", activity: "Cinema", image: "assets/avatar-mika.png" }
     ],
-    trust: ["Penilaian purata 4.9", "20,000+ ahli disahkan", "Setiap profil disemak manusia"]
+    trust: ["Avaliação média 4.9", "20.000+ membros verificados", "Cada perfil é revisado por humanos"]
   },
   stats: [
-    ["24,000+", "temu janji sebenar ditempah"],
-    ["100%", "profil identiti diperiksa"],
-    ["4.9", "penilaian purata ahli"],
-    ["100+", "bandar di Asia"]
+    ["24.000+", "encontros reais agendados"],
+    ["100%", "perfis com sinais de identidade"],
+    ["4.9", "avaliação média dos membros"],
+    ["80+", "cidades no Brasil"]
   ],
   activities: {
-    eyebrow: "Temu janji sebenar, momen sebenar",
-    headline: "Setiap aktiviti lebih baik dengan orang yang sesuai.",
+    eyebrow: "Encontros reais, momentos reais",
+    headline: "Toda atividade fica melhor com a pessoa certa.",
     cards: [
-      ["Kuala Lumpur", "Makan tengah hari dan filem", "Esok · 12:00-2:00 PM", "18 berminat"],
-      ["Bangkok", "Kopi", "Sabtu · 10:00-11:30 AM", "26 berminat"],
-      ["Singapore", "Jalan bandar", "Hujung minggu ini · 2:00-4:00 PM", "19 berminat"]
+      ["São Paulo", "Almoço e cinema", "Amanhã · 12:00-14:00", "18 interessados"],
+      ["Rio de Janeiro", "Café", "Sábado · 10:00-11:30", "26 interessados"],
+      ["Salvador", "Passeio pela cidade", "Este fim de semana · 14:00-16:00", "19 interessados"]
     ]
   },
   verified: {
-    eyebrow: "Profil disahkan",
-    headline: "Apa yang anda lihat ialah orang yang anda jumpa.",
-    body: "Setiap profil disemak sebelum dipaparkan. Anda mendapat janji yang jelas: gambar sebenar, isyarat identiti sebenar, orang sebenar, dan tiada penyamaran.",
-    checks: ["Profil disemak manusia", "Isyarat identiti sebenar", "Sejarah tempahan peribadi", "Panduan bertemu di tempat awam"]
+    eyebrow: "Perfis verificados",
+    headline: "O que você vê é quem você encontra.",
+    body: "Cada perfil é revisado antes de aparecer. Você recebe uma promessa clara: fotos reais, sinais reais de identidade, pessoas reais e zero perfil falso.",
+    checks: ["Perfis revisados por humanos", "Sinais reais de identidade", "Histórico privado de reserva", "Orientação para encontro em local público"]
   },
   profiles: [
-    { name: "Alena, 26", city: "Kuala Lumpur", activity: "Temu janji kopi", badge: "Disahkan", image: "assets/avatar-alex.png" },
-    { name: "Audrey, 21", city: "Bangkok", activity: "Jalan bandar", badge: "Tersedia", image: "assets/avatar-nami.png" },
-    { name: "Nami, 22", city: "Singapore", activity: "Makan malam", badge: "Disemak", image: "assets/avatar-mika.png" }
+    { name: "Beatriz, 26", city: "São Paulo", activity: "Encontro para café", badge: "Verificada", image: "assets/avatar-alex.png" },
+    { name: "Larissa, 21", city: "Rio de Janeiro", activity: "Passeio pela cidade", badge: "Disponível", image: "assets/avatar-nami.png" },
+    { name: "Camila, 22", city: "Salvador", activity: "Jantar", badge: "Revisada", image: "assets/avatar-mika.png" }
   ],
   proof: {
-    eyebrow: "Berhenti membuang masa",
-    headline: "Masa anda lebih bernilai daripada berbulan-bulan meleret.",
-    body: "lumadate direka untuk orang yang mahukan laluan jelas daripada minat kepada rancangan bersemuka yang sopan.",
-    bullets: ["Setiap profil disahkan dan sebenar", "Tempah temu janji sebenar dalam beberapa saat", "Tiada permainan, tiada gambar palsu", "Anda pilih bila dan di mana"]
+    eyebrow: "Pare de perder tempo",
+    headline: "Seu tempo vale mais do que meses deslizando perfis.",
+    body: "lumadate foi criado para pessoas no Brasil que querem um caminho claro entre interesse e um plano presencial respeitoso.",
+    bullets: ["Cada perfil é real e verificado", "Agende um encontro real em poucos segundos", "Sem jogos, sem fotos falsas", "Você escolhe quando e onde"]
   },
   how: {
-    eyebrow: "Cara kerja",
-    headline: "Tiga langkah ke temu janji sebenar.",
+    eyebrow: "Como funciona",
+    headline: "Três passos para um encontro real.",
     steps: [
-      ["01", "Lihat profil disahkan", "Setiap profil disemak manusia sebelum dipaparkan."],
-      ["02", "Tempah dengan pantas", "Pilih masa, pilih aktiviti, dan teruskan tanpa mesej tanpa henti."],
-      ["03", "Berjumpa secara sebenar", "Nikmati temu janji atau aktiviti sopan dengan privasi dan jangkaan jelas."]
+      ["01", "Veja perfis verificados", "Cada perfil é revisado por humanos antes de aparecer."],
+      ["02", "Agende rapidamente", "Escolha horário, atividade e continue sem mensagens infinitas."],
+      ["03", "Encontre pessoalmente", "Aproveite um encontro ou atividade com privacidade e expectativas claras."]
     ]
   },
   conversion: {
-    eyebrow: "Mula hari ini",
-    headline: "Temui orang disahkan yang bersedia untuk rancangan sebenar.",
-    body: "Hantar permintaan profil anda dan lihat ahli yang sesuai berhampiran anda. Setiap profil disemak, setiap padanan direka untuk pertemuan sebenar, dan maklumat anda kekal peribadi sehingga anda memilih untuk teruskan.",
-    formTitle: "Daftar untuk padanan",
-    buttonText: "Daftar",
-    note: "Permintaan anda membantu kami mengutamakan profil disahkan yang sesuai."
+    eyebrow: "Comece hoje",
+    headline: "Conheça pessoas verificadas no Brasil prontas para planos reais.",
+    body: "Envie sua solicitação e veja membros compatíveis perto de você. Cada perfil é revisado, cada match é pensado para encontros reais, e suas informações ficam privadas até você decidir continuar.",
+    formTitle: "Cadastre-se para ver matches",
+    buttonText: "Cadastrar",
+    note: "Sua solicitação ajuda a priorizar perfis brasileiros verificados e compatíveis."
   },
   trust: {
-    eyebrow: "Selamat dan peribadi",
-    headline: "Dibina untuk kepercayaan kedua-dua pihak.",
+    eyebrow: "Seguro e privado",
+    headline: "Criado para gerar confiança dos dois lados.",
     cards: [
-      ["Amanah", "Semakan manusia", "Pasukan sebenar menyemak isyarat identiti untuk mengurangkan bot, profil palsu, dan kejutan profil."],
-      ["Privasi", "Maklumat terkawal", "Maklumat hubungan kekal peribadi, dan pengguna memilih apa yang mahu dikongsi sebelum bertemu."],
-      ["Pilihan", "Kawalan pengguna", "Pengguna memilih siapa untuk ditemui, bila mahu bertemu, dan aktiviti yang sesuai."]
+      ["Confiança", "Revisão humana", "Uma equipe real revisa sinais de identidade para reduzir bots, perfis falsos e surpresas."],
+      ["Privacidade", "Informações controladas", "Os dados de contato continuam privados, e cada pessoa escolhe o que compartilhar antes de se encontrar."],
+      ["Escolha", "Controle do usuário", "Você escolhe quem encontrar, quando encontrar e qual atividade faz sentido."]
     ]
   },
   testimonials: {
-    eyebrow: "Ahli sebenar, temu janji sebenar",
-    headline: "Disukai oleh orang yang sudah penat dengan profil palsu.",
+    eyebrow: "Pessoas reais, encontros reais",
+    headline: "Preferido por quem cansou de perfis falsos.",
     quotes: [
-      ["Saya dipadankan, menempah, dan bertemu dia pada minggu yang sama. Tiada permainan, tiada hilang begitu saja, dan dia sama seperti gambarnya.", "Daniel · Singapore"],
-      ["Pengesahan memang membuat perbezaan. Semua orang yang saya jumpa benar-benar seperti yang mereka nyatakan.", "Marcus · Kuala Lumpur"],
-      ["Saya berhenti membazir minggu demi minggu meleret. Sekarang saya hanya tempah temu janji sebenar dan pergi.", "Kenji · Tokyo"]
+      ["Fiz o match, agendei e encontrei ela na mesma semana. Sem joguinhos, sem sumiço, e ela era exatamente como nas fotos.", "Rafael · São Paulo"],
+      ["A verificação faz diferença. As pessoas que encontrei eram reais e claras desde o começo.", "Marcos · Rio de Janeiro"],
+      ["Parei de perder semanas deslizando perfis. Agora marco encontros reais e simplesmente vou.", "Thiago · Brasília"]
     ]
   },
   faq: {
-    eyebrow: "Perlu diketahui",
-    headline: "Soalan lazim",
+    eyebrow: "O que saber",
+    headline: "Perguntas frequentes",
     items: [
-      ["Adakah profil benar-benar disahkan?", "Ya. Halaman ini menekankan semakan manusia, isyarat identiti, gambar sebenar, dan proses pertemuan yang lebih selamat."],
-      ["Adakah ini selamat dan peribadi?", "Pengalaman ini menekankan privasi, panduan bertemu di tempat awam, dan kawalan pengguna terhadap siapa, bila, dan di mana untuk bertemu."],
-      ["Bagaimana tempahan temu janji berfungsi?", "Pelawat melihat profil disahkan, memilih aktiviti dan masa, kemudian teruskan melalui aplikasi, web app, atau halaman tempahan yang anda tetapkan."],
-      ["Bandar mana yang boleh disokong?", "Halaman ini boleh menyokong kempen mengikut bandar di Asia. Kemas kini senarai bandar, kad profil, dan kad aktiviti mengikut kempen iklan."]
+      ["Os perfis são realmente verificados?", "Sim. A página reforça revisão humana, sinais de identidade, fotos reais e um processo de encontro mais seguro."],
+      ["Isso é seguro e privado?", "A experiência prioriza privacidade, encontros em locais públicos e controle sobre quem, quando e onde encontrar."],
+      ["Como funciona o agendamento?", "O visitante vê perfis verificados, escolhe uma atividade e continua pelo fluxo de cadastro que você definir."],
+      ["Quais regiões do Brasil podem ser usadas?", "A página pode apoiar campanhas por cidade ou estado no Brasil. Atualize perfis, fotos e cards conforme a região do anúncio."]
     ]
   },
   finalCta: {
-    headline: "Temu janji sebenar anda seterusnya hanya satu klik sahaja.",
-    body: "Orang disahkan, aktiviti sebenar, tempahan pantas, dan aliran penukaran yang dibina untuk trafik iklan berbayar.",
-    primaryText: "Daftar",
+    headline: "Seu próximo encontro real está a um clique.",
+    body: "Pessoas verificadas, atividades reais, cadastro rápido e fluxo de conversão criado para tráfego pago no Brasil.",
+    primaryText: "Cadastrar",
     primaryUrl: "#lead-form",
-    secondaryText: "Dapatkan jemputan",
+    secondaryText: "Receber convite",
     secondaryUrl: "#lead-form"
   }
 };
